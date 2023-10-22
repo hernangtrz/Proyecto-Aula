@@ -1,6 +1,6 @@
 ﻿namespace Interfaz
 {
-    partial class MenuPrincipal
+    partial class MenuPrincipalGUI
     {
         /// <summary>
         /// Required designer variable.

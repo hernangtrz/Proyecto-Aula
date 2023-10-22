@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTITY
 {
+    [Serializable]
     public class Categoria
     {
         public String Nombre { get; set; }
@@ -21,6 +22,10 @@ namespace ENTITY
             this.TotalGastado = totalGastado;
             this.Presupuesto = presupuesto;
             this.Mes = mes;
+        }
+
+        public Categoria()
+        {
         }
     }
 }

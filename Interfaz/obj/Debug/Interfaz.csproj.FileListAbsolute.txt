@@ -9,8 +9,6 @@ C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.cspr
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.csproj.CoreCompileInputs.cache
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.exe
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.pdb
-C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.Transacciones.resources
-C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.Categorias.resources
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\BLL.dll
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\ENTITY.dll
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\DAL.dll
@@ -18,3 +16,5 @@ C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\BLL.pdb
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\ENTITY.pdb
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\DAL.pdb
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.CategoriasGUI.resources
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.TransaccionesGUI.resources

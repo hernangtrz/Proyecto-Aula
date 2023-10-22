@@ -16,7 +16,7 @@ namespace Interfaz
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IniciarRegistrarSesion());
+            Application.Run(new TransaccionesGUI());
         }
     }
 }

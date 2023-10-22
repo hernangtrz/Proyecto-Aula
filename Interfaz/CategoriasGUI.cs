@@ -10,23 +10,23 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class Categorias : Form
+    public partial class CategoriasGUI : Form
     {
-        public Categorias()
+        public CategoriasGUI()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuPrincipal m = new MenuPrincipal();
+            MenuPrincipalGUI m = new MenuPrincipalGUI();
             m.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Transacciones t = new Transacciones();
+            TransaccionesGUI t = new TransaccionesGUI();
             t.Show();
             this.Hide();
         }
@@ -38,17 +38,21 @@ namespace Interfaz
 
         private void Categorias_Load(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Add("Dato1", "Dato2", "Dato3");
+            dataGridView1.Rows.Add("Dato4", "Dato5", "Dato6");
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            foreach (DataGridViewRow fila in dataGridView1.SelectedRows)
+            {
+                string dato = fila.Cells[2].Value.ToString();
+                MessageBox.Show(dato);
+            }
         }
     }
 }

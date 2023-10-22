@@ -1,6 +1,6 @@
 ﻿namespace Interfaz
 {
-    partial class Transacciones
+    partial class TransaccionesGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -37,7 +37,26 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.lbCategoria = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbTipoTransaccion = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -46,39 +65,18 @@
             this.tipoTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionTransaccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.cbCategoria = new System.Windows.Forms.ComboBox();
-            this.txtFuenteIngreso = new System.Windows.Forms.TextBox();
-            this.lbFuenteIngreso = new System.Windows.Forms.Label();
-            this.lbCategoria = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -197,16 +195,205 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // tabControl1
+            // tabPage3
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(144, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(666, 444);
-            this.tabControl1.TabIndex = 10;
+            this.tabPage3.Controls.Add(this.panel5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(658, 418);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Eliminar";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.button7);
+            this.panel5.Controls.Add(this.label8);
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Controls.Add(this.textBox5);
+            this.panel5.Location = new System.Drawing.Point(12, 13);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(634, 392);
+            this.panel5.TabIndex = 23;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(223, 272);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(169, 30);
+            this.button7.TabIndex = 22;
+            this.button7.Text = "Eliminar";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(196, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(232, 25);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Eliminar Transaccion";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(186, 87);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(100, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Id de la transaccion";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(296, 84);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(132, 20);
+            this.textBox5.TabIndex = 15;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(658, 418);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Registrar";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnRegistrar);
+            this.panel4.Controls.Add(this.cbCategoria);
+            this.panel4.Controls.Add(this.lbCategoria);
+            this.panel4.Controls.Add(this.txtDescripcion);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.dtFecha);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.cbTipoTransaccion);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.txtMonto);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Location = new System.Drawing.Point(12, 13);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(634, 392);
+            this.panel4.TabIndex = 21;
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Location = new System.Drawing.Point(214, 317);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(169, 30);
+            this.btnRegistrar.TabIndex = 22;
+            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Items.AddRange(new object[] {
+            "Sin categoria"});
+            this.cbCategoria.Location = new System.Drawing.Point(292, 185);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(132, 21);
+            this.cbCategoria.TabIndex = 21;
+            // 
+            // lbCategoria
+            // 
+            this.lbCategoria.AutoSize = true;
+            this.lbCategoria.Location = new System.Drawing.Point(196, 188);
+            this.lbCategoria.Name = "lbCategoria";
+            this.lbCategoria.Size = new System.Drawing.Size(52, 13);
+            this.lbCategoria.TabIndex = 19;
+            this.lbCategoria.Text = "Categoria";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(292, 235);
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(221, 66);
+            this.txtDescripcion.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(196, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(243, 25);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Registrar Transaccion";
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFecha.Location = new System.Drawing.Point(292, 143);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(132, 20);
+            this.dtFecha.TabIndex = 17;
+            this.dtFecha.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(147, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Tipo de transaccion";
+            // 
+            // cbTipoTransaccion
+            // 
+            this.cbTipoTransaccion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTipoTransaccion.FormattingEnabled = true;
+            this.cbTipoTransaccion.Items.AddRange(new object[] {
+            "Ingreso",
+            "Gasto"});
+            this.cbTipoTransaccion.Location = new System.Drawing.Point(292, 58);
+            this.cbTipoTransaccion.Name = "cbTipoTransaccion";
+            this.cbTipoTransaccion.Size = new System.Drawing.Size(132, 21);
+            this.cbTipoTransaccion.TabIndex = 16;
+            this.cbTipoTransaccion.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(211, 103);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Monto";
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(292, 100);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(132, 20);
+            this.txtMonto.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(211, 143);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Fecha";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(185, 238);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Descripcion";
             // 
             // tabPage1
             // 
@@ -270,251 +457,41 @@
             this.descripcionTransaccion.HeaderText = "Descripcion";
             this.descripcionTransaccion.Name = "descripcionTransaccion";
             // 
-            // tabPage2
+            // tabControl1
             // 
-            this.tabPage2.Controls.Add(this.panel4);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(658, 418);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Registrar";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(144, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(666, 444);
+            this.tabControl1.TabIndex = 10;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.button6);
-            this.panel4.Controls.Add(this.cbCategoria);
-            this.panel4.Controls.Add(this.txtFuenteIngreso);
-            this.panel4.Controls.Add(this.lbFuenteIngreso);
-            this.panel4.Controls.Add(this.lbCategoria);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Controls.Add(this.dateTimePicker1);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.comboBox1);
-            this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.textBox1);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(12, 13);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(634, 392);
-            this.panel4.TabIndex = 21;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(214, 340);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(169, 30);
-            this.button6.TabIndex = 22;
-            this.button6.Text = "Registrar";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // cbCategoria
-            // 
-            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoria.Enabled = false;
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Items.AddRange(new object[] {
-            "Sin categoria"});
-            this.cbCategoria.Location = new System.Drawing.Point(292, 185);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(132, 21);
-            this.cbCategoria.TabIndex = 21;
-            // 
-            // txtFuenteIngreso
-            // 
-            this.txtFuenteIngreso.Enabled = false;
-            this.txtFuenteIngreso.Location = new System.Drawing.Point(292, 221);
-            this.txtFuenteIngreso.Name = "txtFuenteIngreso";
-            this.txtFuenteIngreso.Size = new System.Drawing.Size(132, 20);
-            this.txtFuenteIngreso.TabIndex = 21;
-            // 
-            // lbFuenteIngreso
-            // 
-            this.lbFuenteIngreso.AutoSize = true;
-            this.lbFuenteIngreso.Enabled = false;
-            this.lbFuenteIngreso.Location = new System.Drawing.Point(156, 224);
-            this.lbFuenteIngreso.Name = "lbFuenteIngreso";
-            this.lbFuenteIngreso.Size = new System.Drawing.Size(92, 13);
-            this.lbFuenteIngreso.TabIndex = 20;
-            this.lbFuenteIngreso.Text = "Fuente de ingreso";
-            // 
-            // lbCategoria
-            // 
-            this.lbCategoria.AutoSize = true;
-            this.lbCategoria.Enabled = false;
-            this.lbCategoria.Location = new System.Drawing.Point(196, 188);
-            this.lbCategoria.Name = "lbCategoria";
-            this.lbCategoria.Size = new System.Drawing.Size(52, 13);
-            this.lbCategoria.TabIndex = 19;
-            this.lbCategoria.Text = "Categoria";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(292, 258);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 66);
-            this.textBox2.TabIndex = 18;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(196, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Registrar Transaccion";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(292, 143);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(132, 20);
-            this.dateTimePicker1.TabIndex = 17;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Tipo de transaccion";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Ingreso",
-            "Gasto"});
-            this.comboBox1.Location = new System.Drawing.Point(292, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(132, 21);
-            this.comboBox1.TabIndex = 16;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(211, 103);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Monto";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(292, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(132, 20);
-            this.textBox1.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(211, 143);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Fecha";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(185, 261);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 13);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Descripcion";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.panel5);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(658, 418);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Eliminar";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.button7);
-            this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.textBox5);
-            this.panel5.Location = new System.Drawing.Point(12, 13);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(634, 392);
-            this.panel5.TabIndex = 23;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(211, 134);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(169, 30);
-            this.button7.TabIndex = 22;
-            this.button7.Text = "Eliminar";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(196, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(232, 25);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "Eliminar Transaccion";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(186, 87);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Id de la transaccion";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(296, 84);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(132, 20);
-            this.textBox5.TabIndex = 15;
-            // 
-            // Transacciones
+            // TransaccionesGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(810, 447);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
-            this.Name = "Transacciones";
+            this.Name = "TransaccionesGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Transacciones";
+            this.Text = "TransaccionesGUI";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -530,36 +507,34 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.ComboBox cbCategoria;
-        private System.Windows.Forms.TextBox txtFuenteIngreso;
-        private System.Windows.Forms.Label lbFuenteIngreso;
-        private System.Windows.Forms.Label lbCategoria;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.ComboBox cbCategoria;
+        private System.Windows.Forms.Label lbCategoria;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtFecha;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbTipoTransaccion;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn idTransaccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoTransaccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipoTransaccion;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaTransaccion;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcionTransaccion;
+        private System.Windows.Forms.TabControl tabControl1;
     }
 }

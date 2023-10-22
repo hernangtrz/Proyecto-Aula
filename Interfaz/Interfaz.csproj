@@ -46,40 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Categorias.cs">
+    <Compile Include="CategoriasGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Categorias.Designer.cs">
-      <DependentUpon>Categorias.cs</DependentUpon>
+    <Compile Include="CategoriasGUI.Designer.cs">
+      <DependentUpon>CategoriasGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Transacciones.cs">
+    <Compile Include="TransaccionesGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Transacciones.Designer.cs">
-      <DependentUpon>Transacciones.cs</DependentUpon>
+    <Compile Include="TransaccionesGUI.Designer.cs">
+      <DependentUpon>TransaccionesGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="IniciarRegistrarSesion.cs">
+    <Compile Include="IniciarRegistrarSesionGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="IniciarRegistrarSesion.Designer.cs">
-      <DependentUpon>IniciarRegistrarSesion.cs</DependentUpon>
+    <Compile Include="IniciarRegistrarSesionGUI.Designer.cs">
+      <DependentUpon>IniciarRegistrarSesionGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenuPrincipal.cs">
+    <Compile Include="MenuPrincipalGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <Compile Include="MenuPrincipalGUI.Designer.cs">
+      <DependentUpon>MenuPrincipalGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Categorias.resx">
-      <DependentUpon>Categorias.cs</DependentUpon>
+    <EmbeddedResource Include="CategoriasGUI.resx">
+      <DependentUpon>CategoriasGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="IniciarRegistrarSesion.resx">
-      <DependentUpon>IniciarRegistrarSesion.cs</DependentUpon>
+    <EmbeddedResource Include="IniciarRegistrarSesionGUI.resx">
+      <DependentUpon>IniciarRegistrarSesionGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="MenuPrincipalGUI.resx">
+      <DependentUpon>MenuPrincipalGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -91,8 +91,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Transacciones.resx">
-      <DependentUpon>Transacciones.cs</DependentUpon>
+    <EmbeddedResource Include="TransaccionesGUI.resx">
+      <DependentUpon>TransaccionesGUI.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

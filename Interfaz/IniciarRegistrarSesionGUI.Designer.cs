@@ -1,6 +1,6 @@
 ﻿namespace Interfaz
 {
-    partial class IniciarRegistrarSesion
+    partial class IniciarRegistrarSesionGUI
     {
         /// <summary>
         /// Variable del diseñador necesaria.

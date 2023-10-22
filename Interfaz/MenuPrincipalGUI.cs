@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class MenuPrincipal : Form
+    public partial class MenuPrincipalGUI : Form
     {
-        public MenuPrincipal()
+        public MenuPrincipalGUI()
         {
             InitializeComponent();
         }
@@ -24,14 +24,14 @@ namespace Interfaz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Categorias c = new Categorias();
+            CategoriasGUI c = new CategoriasGUI();
             c.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Transacciones t = new Transacciones();
+            TransaccionesGUI t = new TransaccionesGUI();
             t.Show();
             this.Hide();
         }

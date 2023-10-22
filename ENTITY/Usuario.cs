@@ -8,15 +8,15 @@ namespace ENTITY
 {
     public class Usuario
     {
-        public int Id { get; set; } 
+        public int Id { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string NombreUsuario{ get; set; }
+        public string NombreUsuario { get; set; }
         public string Correo { get; set; }
         public String telefono { get; set; }
         public string Contraseña { get; set; }
 
-        public Usuario(int id, string nombre, string apellido, string NombreUsuario, string correo, string contraseña,  String telefono)
+        public Usuario(int id, string nombre, string apellido, string NombreUsuario, string correo, string contraseña, String telefono)
         {
             this.Id = id;
             this.Nombre = nombre;
@@ -27,7 +27,7 @@ namespace ENTITY
             this.NombreUsuario = NombreUsuario;
         }
 
-        public Usuario() { }    
+        public Usuario() { }
 
     }
 }

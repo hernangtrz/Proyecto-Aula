@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace Interfaz
 {
-    public partial class IniciarRegistrarSesion : Form
+    public partial class IniciarRegistrarSesionGUI : Form
     {
         public UsuarioService usuarioService;    
-        public IniciarRegistrarSesion()
+        public IniciarRegistrarSesionGUI()
         {
             InitializeComponent();
             usuarioService = new UsuarioService();
@@ -128,7 +128,7 @@ namespace Interfaz
             {
                 if(item.NombreUsuario == txtUsuario.Text && item.Contraseña == txtContraseña2.Text)
                 {
-                    MenuPrincipal m = new MenuPrincipal();
+                    MenuPrincipalGUI m = new MenuPrincipalGUI();
                     m.Show();
                     this.Hide();
                     encontrado = true;
