@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTITY
 {
+    [Serializable]
     public class Cuenta
     {
         public Double Saldo { get; set; }

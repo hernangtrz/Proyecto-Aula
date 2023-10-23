@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using ENTITY;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +14,12 @@ namespace Interfaz
 {
     public partial class CategoriasGUI : Form
     {
+        CategoriaService categoriaService;
+        List<Categoria> listaCategorias;
         public CategoriasGUI()
         {
+            categoriaService = new CategoriaService();
+            listaCategorias = categoriaService.ConsultarTodos().Categorias;
             InitializeComponent();
         }
 
@@ -38,23 +44,95 @@ namespace Interfaz
 
         private void Categorias_Load(object sender, EventArgs e)
         {
-            dataGridView1.Rows.Add("Dato1", "Dato2", "Dato3");
-            dataGridView1.Rows.Add("Dato4", "Dato5", "Dato6");
+            CargarGrilla(listaCategorias);
+        }
+
+        private void btnAñadir_Click(object sender, EventArgs e)
+        {
+            int id = 1;
+            String nombre = txtNombreAñadir.Text;
+            Double presupuesto = Double.Parse(txtPresupuestoAñadir.Text);
+            string mes = txtMesAñadir.Text;
+            List<Transacciones> listaTransacciones = new List<Transacciones>();
+            var categorias = categoriaService.ConsultarTodos();
+            if (categorias.Categorias.Any())
+            {
+                id = categorias.Categorias.Last().Id + 1;
+
+            }
+
+            Categoria c = new Categoria(id, nombre, presupuesto, mes, listaTransacciones);
+            String message = categoriaService.Guardar(c);
+            MessageBox.Show(message);
+            CargarGrilla(categoriaService.ConsultarTodos().Categorias);
+        }
+
+        void CargarGrilla(List<Categoria> list)
+        {
+            grillaCategorias.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                grillaCategorias.Rows.Add(item.Nombre, item.Transacciones.Count, item.TotalGastado, item.Presupuesto,item.Mes);
+            }
 
         }
 
 
-
-
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow fila in dataGridView1.SelectedRows)
+            Categoria c = categoriaService.BuscarNombre(txtNombreEliminar.Text);
+            if(c == null)
             {
-                string dato = fila.Cells[2].Value.ToString();
-                MessageBox.Show(dato);
+                MessageBox.Show("No se encontro la categoria con el nombre: " + txtNombreEliminar.Text);
+            }
+            else
+            {
+                MessageBox.Show(categoriaService.Eliminar(c));
+                CargarGrilla(categoriaService.ConsultarTodos().Categorias);
             }
         }
 
-       
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Categoria c = categoriaEncontrada();
+            if (c == null){
+                MessageBox.Show("No se encontro la categoria con el nombre: " + txtNombreEliminar.Text);
+            }
+            else
+            {
+                txtMesEditar.Visible = true;
+                txtPresupuestoEditar.Visible = true;
+                lblMes.Visible = true;
+                lblPresupuesto.Visible = true;
+                txtPresupuestoEditar.Text = c.Presupuesto.ToString();
+                txtMesEditar.Text = c.Mes;
+                btnActualizar.Enabled = true;
+            }              
+        }
+
+        String nombre;
+        public Categoria categoriaEncontrada()
+        {
+            nombre = txtNombreEditar.Text;
+            Categoria c = categoriaService.BuscarNombre(nombre);
+            if (c != null)
+            {
+                return c;
+            }
+            return null;
+        }
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            Categoria c = categoriaService.BuscarNombre(nombre);
+            c.Nombre = txtNombreEditar.Text;
+            c.Mes = txtMesEditar.Text;
+            c.Presupuesto = Double.Parse(txtPresupuestoEditar.Text);
+            categoriaService.Eliminar(c);
+            categoriaService.Guardar(c);
+            MessageBox.Show("Categoria Actualizada");
+            CargarGrilla(categoriaService.ConsultarTodos().Categorias);
+        }
+
     }
 }

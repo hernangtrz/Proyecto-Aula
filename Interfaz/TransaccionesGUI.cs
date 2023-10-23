@@ -18,9 +18,13 @@ namespace Interfaz
     {
         List<Transacciones> list;
         TransaccionesService transaccionesService;
+        CategoriaService categoriaService;
+        List<Categoria> listaCategorias;
         public TransaccionesGUI()
         {
             transaccionesService = new TransaccionesService();
+            categoriaService = new CategoriaService();
+            listaCategorias = categoriaService.ConsultarTodos().Categorias;
             InitializeComponent();
             list = transaccionesService.ConsultarTodos().Transacciones;
         }
@@ -29,7 +33,7 @@ namespace Interfaz
         {
             MenuPrincipalGUI m = new MenuPrincipalGUI();
             m.Show();
-            this.Hide();    
+            this.Hide();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -39,7 +43,7 @@ namespace Interfaz
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -69,15 +73,19 @@ namespace Interfaz
             String tipoTransaccion = cbTipoTransaccion.Text;
             Double monto = Double.Parse(txtMonto.Text);
             DateTime fecha = dtFecha.Value;
-            Categoria categoria = new Categoria();
+            Categoria categoria = categoriaService.BuscarNombre(cbCategoria.Text);
             String descripcion = txtDescripcion.Text;
             var transacciones = transaccionesService.ConsultarTodos();
-            if (transacciones.Transacciones != null)
+            if (transacciones.Transacciones.Any())
             {
                 id = transacciones.Transacciones.Last().Id + 1;
 
             }
             Transacciones t = new Transacciones(id, tipoTransaccion, monto, fecha, categoria, descripcion);
+            categoria.Transacciones.Add(t);
+            categoriaService.Eliminar(categoria);
+            categoria.calcularTotalGastato();
+            categoriaService.Guardar(categoria);
             String message = transaccionesService.Guardar(t);
             MessageBox.Show(message);
             CargarGrilla(transaccionesService.ConsultarTodos().Transacciones);
@@ -94,17 +102,26 @@ namespace Interfaz
 
         }
 
-       
+
 
         private void TransaccionesGUI_Load(object sender, EventArgs e)
         {
             CargarGrilla(list);
+            foreach (var item in listaCategorias)
+            {
+                cbCategoria.Items.Add(item.Nombre);
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(transaccionesService.Eliminar(int.Parse(txtId.Text)));
-          
+            MessageBox.Show(transaccionesService.Eliminar(int.Parse(txtId.Text)));
+            CargarGrilla(transaccionesService.ConsultarTodos().Transacciones);
+        }
+
+        private void tabControl1_Resize(object sender, EventArgs e)
+        {
+            tabControl1.Size = new Size(this.ClientSize.Width - 20, this.ClientSize.Height - 40);
         }
     }
 }

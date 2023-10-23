@@ -9,21 +9,29 @@ namespace ENTITY
     [Serializable]
     public class Categoria
     {
+        public int Id { get; set; } 
         public String Nombre { get; set; }
-        public Transacciones Transacciones { get; set; }
-        public Double TotalGastado { get; set; }
-        public String Presupuesto { get; set; }
+        public Double Presupuesto { get; set; }
         public String Mes { get; set; }
+        public List<Transacciones> Transacciones { get; set; }
+        public Double TotalGastado { get; set; } = 0;
 
-        public Categoria(string nombre, Transacciones transacciones, double totalGastado, string presupuesto, string mes)
+        public Categoria(int id, string nombre, Double presupuesto, string mes, List<Transacciones> transacciones)
         {
-            this.Nombre = nombre;
-            this.Transacciones = transacciones;
-            this.TotalGastado = totalGastado;
-            this.Presupuesto = presupuesto;
-            this.Mes = mes;
+            Id = id;
+            Nombre = nombre;
+            Presupuesto = presupuesto;
+            Mes = mes;
+            Transacciones = transacciones;
         }
 
+        public void calcularTotalGastato()
+        {
+            foreach (var item in Transacciones)
+            {
+                TotalGastado = TotalGastado + item.Monto;                
+            }
+        }
         public Categoria()
         {
         }

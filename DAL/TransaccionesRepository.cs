@@ -16,22 +16,18 @@ namespace DAL
     {
         private readonly string FileName = "Transacciones.dat";
 
-        //public void Eliminar(int id)
-        //{
-        //    List<Transacciones> transacciones = new List<Transacciones>();
-        //    transacciones = ConsultarTodos();
-        //    FileStream file = new FileStream(FileName, FileMode.Create);
-        //    file.Close();
-        //    foreach (var item in transacciones)
-        //    {
-        //        if (!EsEncontrado(item, id))
-        //        {
-        //            Guardar(item);
-        //        }
+        public void Eliminar(int id)
+        {
+            List<Transacciones> transacciones = new List<Transacciones>();
+            transacciones = ConsultarTodos();
+            transacciones.RemoveAll(obj => obj.Id == id);
+            using (Stream file = File.Open(FileName, FileMode.Create))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(file, transacciones);
+            }
 
-        //    }
-
-        //}
+        }
 
         public void Guardar(Transacciones transaccion)
         {
@@ -49,7 +45,7 @@ namespace DAL
         public List<Transacciones> ConsultarTodos()
         {
             List<Transacciones> transacciones = new List<Transacciones>();
-            FileStream file = new FileStream(FileName, FileMode.Open, FileAccess.ReadWrite);
+            FileStream file = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             BinaryFormatter formatter = new BinaryFormatter();
 
             if (new FileInfo(FileName).Length == 0)
