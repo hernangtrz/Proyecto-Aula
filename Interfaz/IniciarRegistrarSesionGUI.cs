@@ -115,10 +115,7 @@ namespace Interfaz
             return true;
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
+   
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
@@ -141,5 +138,6 @@ namespace Interfaz
             txtUsuario.Text = "";
             txtContraseña2.Text = "";
         }
+
     }
 }

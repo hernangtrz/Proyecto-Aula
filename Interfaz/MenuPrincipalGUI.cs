@@ -38,8 +38,9 @@ namespace Interfaz
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Dispose();
-            this.Close();
+            IniciarRegistrarSesionGUI t = new IniciarRegistrarSesionGUI();
+            t.Show();
+            this.Hide();
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)

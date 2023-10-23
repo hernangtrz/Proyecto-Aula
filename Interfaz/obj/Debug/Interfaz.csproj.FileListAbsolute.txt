@@ -18,3 +18,23 @@ C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\DAL.pdb
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.CategoriasGUI.resources
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.TransaccionesGUI.resources
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\Interfaz.exe.config
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\Interfaz.exe
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\Interfaz.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\BLL.dll
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\ENTITY.dll
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\DAL.dll
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\BLL.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\ENTITY.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\bin\Debug\DAL.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.csproj.AssemblyReference.cache
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.CategoriasGUI.resources
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.IniciarRegistrarSesionGUI.resources
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.MenuPrincipalGUI.resources
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.Properties.Resources.resources
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.TransaccionesGUI.resources
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.csproj.GenerateResource.cache
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.csproj.CoreCompileInputs.cache
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.csproj.CopyComplete
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.exe
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.pdb

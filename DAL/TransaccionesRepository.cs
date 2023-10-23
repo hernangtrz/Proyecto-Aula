@@ -16,6 +16,23 @@ namespace DAL
     {
         private readonly string FileName = "Transacciones.dat";
 
+        //public void Eliminar(int id)
+        //{
+        //    List<Transacciones> transacciones = new List<Transacciones>();
+        //    transacciones = ConsultarTodos();
+        //    FileStream file = new FileStream(FileName, FileMode.Create);
+        //    file.Close();
+        //    foreach (var item in transacciones)
+        //    {
+        //        if (!EsEncontrado(item, id))
+        //        {
+        //            Guardar(item);
+        //        }
+
+        //    }
+
+        //}
+
         public void Guardar(Transacciones transaccion)
         {
             List<Transacciones> transacciones = ConsultarTodos();

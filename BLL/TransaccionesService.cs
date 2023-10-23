@@ -2,6 +2,7 @@
 using ENTITY;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,10 +12,40 @@ namespace BLL
     public class TransaccionesService
     {
         private readonly TransaccionesRepository transaccionesRepository;
+        private List<Transacciones> transacciones;
         public TransaccionesService()
         {
             transaccionesRepository = new TransaccionesRepository();
+            RefrescarLista();
         }
+
+        void RefrescarLista()
+        {
+            transacciones = transaccionesRepository.ConsultarTodos();
+        }
+
+        //public string Eliminar(int Id)
+        //{
+        //    try
+        //    {
+        //        if (transaccionesRepository.Buscar(Id) != null)
+        //        {
+        //            transaccionesRepository.Eliminar(Id);
+        //            RefrescarLista();
+        //            return ($"se han Eliminado Satisfactoriamente los datos de la persona Transaccion: {Id} ");
+        //        }
+        //        else
+        //        {
+        //            return ($"Lo sentimos, no se encuentra registrada una Transaccion con Id :  {Id}");
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
+
+        //        return $"Error de la Aplicacion: {e.Message}";
+        //    }
+
+        //}
 
         public string Guardar(Transacciones transaccion)
         {

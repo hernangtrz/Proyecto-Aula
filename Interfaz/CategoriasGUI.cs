@@ -54,5 +54,7 @@ namespace Interfaz
                 MessageBox.Show(dato);
             }
         }
+
+       
     }
 }

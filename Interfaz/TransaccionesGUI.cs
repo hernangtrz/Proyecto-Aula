@@ -16,11 +16,13 @@ namespace Interfaz
 {
     public partial class TransaccionesGUI : Form
     {
+        List<Transacciones> list;
         TransaccionesService transaccionesService;
         public TransaccionesGUI()
         {
             transaccionesService = new TransaccionesService();
             InitializeComponent();
+            list = transaccionesService.ConsultarTodos().Transacciones;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,6 +80,31 @@ namespace Interfaz
             Transacciones t = new Transacciones(id, tipoTransaccion, monto, fecha, categoria, descripcion);
             String message = transaccionesService.Guardar(t);
             MessageBox.Show(message);
+            CargarGrilla(transaccionesService.ConsultarTodos().Transacciones);
+        }
+
+        void CargarGrilla(List<Transacciones> list)
+        {
+            grillaTransacciones.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                grillaTransacciones.Rows.Add(item.Id, item.Monto, item.TipoTransaccion, item.Fecha, item.Descripcion);
+            }
+
+        }
+
+       
+
+        private void TransaccionesGUI_Load(object sender, EventArgs e)
+        {
+            CargarGrilla(list);
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(transaccionesService.Eliminar(int.Parse(txtId.Text)));
+          
         }
     }
 }
