@@ -50,19 +50,19 @@
             this.presupuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mesPresupuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Añadir = new System.Windows.Forms.TabPage();
+            this.cbMes = new System.Windows.Forms.ComboBox();
             this.btnAñadir = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtMesAñadir = new System.Windows.Forms.TextBox();
             this.txtPresupuestoAñadir = new System.Windows.Forms.TextBox();
             this.txtNombreAñadir = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cbMesEditar = new System.Windows.Forms.ComboBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtMesEditar = new System.Windows.Forms.TextBox();
             this.txtPresupuestoEditar = new System.Windows.Forms.TextBox();
             this.txtNombreEditar = new System.Windows.Forms.TextBox();
             this.lblMes = new System.Windows.Forms.Label();
@@ -308,9 +308,9 @@
             // Añadir
             // 
             this.Añadir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
+            this.Añadir.Controls.Add(this.cbMes);
             this.Añadir.Controls.Add(this.btnAñadir);
             this.Añadir.Controls.Add(this.label8);
-            this.Añadir.Controls.Add(this.txtMesAñadir);
             this.Añadir.Controls.Add(this.txtPresupuestoAñadir);
             this.Añadir.Controls.Add(this.txtNombreAñadir);
             this.Añadir.Controls.Add(this.label4);
@@ -322,6 +322,29 @@
             this.Añadir.Size = new System.Drawing.Size(638, 423);
             this.Añadir.TabIndex = 1;
             this.Añadir.Text = "Añadir";
+            // 
+            // cbMes
+            // 
+            this.cbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMes.FormattingEnabled = true;
+            this.cbMes.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
+            this.cbMes.Location = new System.Drawing.Point(319, 169);
+            this.cbMes.Name = "cbMes";
+            this.cbMes.Size = new System.Drawing.Size(124, 21);
+            this.cbMes.TabIndex = 13;
+            this.cbMes.SelectedIndexChanged += new System.EventHandler(this.cbMes_SelectedIndexChanged);
             // 
             // btnAñadir
             // 
@@ -344,13 +367,6 @@
             this.label8.Size = new System.Drawing.Size(188, 25);
             this.label8.TabIndex = 11;
             this.label8.Text = "Añadir categoria";
-            // 
-            // txtMesAñadir
-            // 
-            this.txtMesAñadir.Location = new System.Drawing.Point(319, 171);
-            this.txtMesAñadir.Name = "txtMesAñadir";
-            this.txtMesAñadir.Size = new System.Drawing.Size(124, 20);
-            this.txtMesAñadir.TabIndex = 5;
             // 
             // txtPresupuestoAñadir
             // 
@@ -402,10 +418,10 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
+            this.tabPage3.Controls.Add(this.cbMesEditar);
             this.tabPage3.Controls.Add(this.btnActualizar);
             this.tabPage3.Controls.Add(this.btnBuscar);
             this.tabPage3.Controls.Add(this.label5);
-            this.tabPage3.Controls.Add(this.txtMesEditar);
             this.tabPage3.Controls.Add(this.txtPresupuestoEditar);
             this.tabPage3.Controls.Add(this.txtNombreEditar);
             this.tabPage3.Controls.Add(this.lblMes);
@@ -417,6 +433,29 @@
             this.tabPage3.Size = new System.Drawing.Size(638, 423);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Editar";
+            // 
+            // cbMesEditar
+            // 
+            this.cbMesEditar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMesEditar.FormattingEnabled = true;
+            this.cbMesEditar.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
+            this.cbMesEditar.Location = new System.Drawing.Point(341, 177);
+            this.cbMesEditar.Name = "cbMesEditar";
+            this.cbMesEditar.Size = new System.Drawing.Size(124, 21);
+            this.cbMesEditar.TabIndex = 22;
+            this.cbMesEditar.Visible = false;
             // 
             // btnActualizar
             // 
@@ -451,14 +490,6 @@
             this.label5.Size = new System.Drawing.Size(188, 25);
             this.label5.TabIndex = 19;
             this.label5.Text = "Editar categoria";
-            // 
-            // txtMesEditar
-            // 
-            this.txtMesEditar.Location = new System.Drawing.Point(341, 178);
-            this.txtMesEditar.Name = "txtMesEditar";
-            this.txtMesEditar.Size = new System.Drawing.Size(124, 20);
-            this.txtMesEditar.TabIndex = 18;
-            this.txtMesEditar.Visible = false;
             // 
             // txtPresupuestoEditar
             // 
@@ -623,7 +654,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn mesPresupuesto;
         private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtMesAñadir;
         private System.Windows.Forms.TextBox txtPresupuestoAñadir;
         private System.Windows.Forms.TextBox txtNombreAñadir;
         private System.Windows.Forms.Label label4;
@@ -631,7 +661,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtMesEditar;
         private System.Windows.Forms.TextBox txtPresupuestoEditar;
         private System.Windows.Forms.TextBox txtNombreEditar;
         private System.Windows.Forms.Label lblMes;
@@ -642,5 +671,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombreEliminar;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cbMes;
+        private System.Windows.Forms.ComboBox cbMesEditar;
     }
 }

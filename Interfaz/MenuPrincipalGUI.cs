@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BLL;
+using ENTITY;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace Interfaz
 {
     public partial class MenuPrincipalGUI : Form
     {
-        public MenuPrincipalGUI()
+        public Cuenta cuenta;
+        CuentaService cuentaService;
+        public MenuPrincipalGUI(Cuenta cuenta)
         {
+            cuentaService = new CuentaService();
             InitializeComponent();
+            this.cuenta = cuenta;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,14 +30,14 @@ namespace Interfaz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CategoriasGUI c = new CategoriasGUI();
+            CategoriasGUI c = new CategoriasGUI(cuenta);
             c.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TransaccionesGUI t = new TransaccionesGUI();
+            TransaccionesGUI t = new TransaccionesGUI(cuenta);
             t.Show();
             this.Hide();
         }
@@ -44,6 +50,35 @@ namespace Interfaz
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
+        {
+            CargarGrillas(cuenta.Transacciones);
+            cuenta.calcularSaldo();
+            textBox1.Text = cuenta.Saldo.ToString();
+            lblNombre.Text = cuenta.Usuario.Nombre.ToUpper() + " " + cuenta.Usuario.Apellido.ToUpper();
+        }
+
+        void CargarGrillas(List<Transacciones> list)
+        {
+            grillaGastos.Rows.Clear();
+            grillaIngresos.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                if(item.TipoTransaccion == "Gasto")
+                {
+                    grillaGastos.Rows.Add(item.Monto, item.Categoria.Nombre, item.Descripcion, item.Fecha);
+                }
+                else
+                {
+                    grillaIngresos.Rows.Add(item.Monto, item.Categoria.Nombre, item.Descripcion, item.Fecha);
+                }
+            }
+
+          
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

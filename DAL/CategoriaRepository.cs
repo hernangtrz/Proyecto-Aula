@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,17 +43,22 @@ namespace DAL
         public List<Categoria> ConsultarTodos()
         {
             List<Categoria> categorias = new List<Categoria>();
-            FileStream file = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             BinaryFormatter formatter = new BinaryFormatter();
-
-            if (new FileInfo(FileName).Length == 0)
+            if (File.Exists(FileName) && new FileInfo(FileName).Length > 0)
             {
-                Console.WriteLine("El archivo está vacío.");
-                formatter.Serialize(file, categorias);
+                using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    return (List<Categoria>)formatter.Deserialize(fs);
+                }
             }
-            categorias = (List<Categoria>)formatter.Deserialize(file);
-            file.Close();
-            return categorias;
+            else
+            {
+                using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    formatter.Serialize(fs, categorias);
+                    return categorias;
+                }
+            }
         }
 
         private bool EsEncontrado(Categoria t, int identificacionBuscada)

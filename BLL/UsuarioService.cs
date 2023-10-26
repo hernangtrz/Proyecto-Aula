@@ -79,6 +79,11 @@ namespace BLL
                 Encontrado = false;
             }
         }
+
+        public Usuario Buscar(int id)
+        {
+            return usuarioRepository.Buscar(id);
+        }
     }
 
     

@@ -20,18 +20,23 @@ namespace Interfaz
         TransaccionesService transaccionesService;
         CategoriaService categoriaService;
         List<Categoria> listaCategorias;
-        public TransaccionesGUI()
+        Cuenta cuenta;
+        CuentaService cuentaService;
+        public TransaccionesGUI(Cuenta cuenta)
         {
+            cuentaService = new CuentaService();
+            this.cuenta = cuenta;
             transaccionesService = new TransaccionesService();
             categoriaService = new CategoriaService();
             listaCategorias = categoriaService.ConsultarTodos().Categorias;
             InitializeComponent();
             list = transaccionesService.ConsultarTodos().Transacciones;
+            this.cuenta = cuenta;   
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuPrincipalGUI m = new MenuPrincipalGUI();
+            MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
             m.Show();
             this.Hide();
         }
@@ -48,7 +53,7 @@ namespace Interfaz
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CategoriasGUI c = new CategoriasGUI();
+            CategoriasGUI c = new CategoriasGUI(cuenta);
             c.Show();
             this.Hide();
         }
@@ -82,13 +87,23 @@ namespace Interfaz
 
             }
             Transacciones t = new Transacciones(id, tipoTransaccion, monto, fecha, categoria, descripcion);
-            categoria.Transacciones.Add(t);
-            categoriaService.Eliminar(categoria);
-            categoria.calcularTotalGastato();
-            categoriaService.Guardar(categoria);
+            if(categoria == null)
+            {
+                t.Categoria = new Categoria();
+            }
+            else
+            {
+                categoria.Transacciones.Add(t);
+                categoriaService.Eliminar(categoria);
+                categoria.calcularTotalGastato();
+                categoriaService.Guardar(categoria);
+            }
+            cuenta.Transacciones.Add(t);
+            cuentaService.Eliminar(cuenta.Id);
+            cuentaService.Guardar(cuenta);
             String message = transaccionesService.Guardar(t);
             MessageBox.Show(message);
-            CargarGrilla(transaccionesService.ConsultarTodos().Transacciones);
+            CargarGrilla(cuenta.Transacciones);
         }
 
         void CargarGrilla(List<Transacciones> list)
@@ -106,8 +121,8 @@ namespace Interfaz
 
         private void TransaccionesGUI_Load(object sender, EventArgs e)
         {
-            CargarGrilla(list);
-            foreach (var item in listaCategorias)
+            CargarGrilla(cuenta.Transacciones);
+            foreach (var item in cuenta.Categorias)
             {
                 cbCategoria.Items.Add(item.Nombre);
             }

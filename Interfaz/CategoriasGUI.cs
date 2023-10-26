@@ -16,23 +16,27 @@ namespace Interfaz
     {
         CategoriaService categoriaService;
         List<Categoria> listaCategorias;
-        public CategoriasGUI()
+        CuentaService cuentaService;
+        Cuenta cuenta;
+        public CategoriasGUI(Cuenta cuenta)
         {
+            cuentaService = new CuentaService();    
             categoriaService = new CategoriaService();
             listaCategorias = categoriaService.ConsultarTodos().Categorias;
             InitializeComponent();
+            this.cuenta = cuenta;   
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MenuPrincipalGUI m = new MenuPrincipalGUI();
+            MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
             m.Show();
             this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TransaccionesGUI t = new TransaccionesGUI();
+            TransaccionesGUI t = new TransaccionesGUI(cuenta);
             t.Show();
             this.Hide();
         }
@@ -44,7 +48,7 @@ namespace Interfaz
 
         private void Categorias_Load(object sender, EventArgs e)
         {
-            CargarGrilla(listaCategorias);
+            CargarGrilla(cuenta.Categorias);
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
@@ -52,7 +56,7 @@ namespace Interfaz
             int id = 1;
             String nombre = txtNombreAñadir.Text;
             Double presupuesto = Double.Parse(txtPresupuestoAñadir.Text);
-            string mes = txtMesAñadir.Text;
+            string mes = cbMes.Text;
             List<Transacciones> listaTransacciones = new List<Transacciones>();
             var categorias = categoriaService.ConsultarTodos();
             if (categorias.Categorias.Any())
@@ -62,9 +66,12 @@ namespace Interfaz
             }
 
             Categoria c = new Categoria(id, nombre, presupuesto, mes, listaTransacciones);
+            cuenta.Categorias.Add(c);
+            cuentaService.Eliminar(cuenta.Id);
+            cuentaService.Guardar(cuenta);
             String message = categoriaService.Guardar(c);
             MessageBox.Show(message);
-            CargarGrilla(categoriaService.ConsultarTodos().Categorias);
+            CargarGrilla(cuenta.Categorias);
         }
 
         void CargarGrilla(List<Categoria> list)
@@ -101,12 +108,12 @@ namespace Interfaz
             }
             else
             {
-                txtMesEditar.Visible = true;
+                cbMesEditar.Visible = true;
                 txtPresupuestoEditar.Visible = true;
                 lblMes.Visible = true;
                 lblPresupuesto.Visible = true;
                 txtPresupuestoEditar.Text = c.Presupuesto.ToString();
-                txtMesEditar.Text = c.Mes;
+                cbMesEditar.Text = c.Mes;
                 btnActualizar.Enabled = true;
             }              
         }
@@ -126,13 +133,23 @@ namespace Interfaz
         {
             Categoria c = categoriaService.BuscarNombre(nombre);
             c.Nombre = txtNombreEditar.Text;
-            c.Mes = txtMesEditar.Text;
+            c.Mes = cbMesEditar.Text;
             c.Presupuesto = Double.Parse(txtPresupuestoEditar.Text);
             categoriaService.Eliminar(c);
             categoriaService.Guardar(c);
+            btnActualizar.Enabled = false;
+            cbMesEditar.Visible = false;
+            txtPresupuestoEditar.Visible = false;
+            lblMes.Visible = false;
+            lblPresupuesto.Visible = false;
+            txtNombreEditar.Text = "";
             MessageBox.Show("Categoria Actualizada");
             CargarGrilla(categoriaService.ConsultarTodos().Categorias);
         }
 
+        private void cbMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,8 +9,8 @@ namespace ENTITY
     [Serializable]
     public class Categoria
     {
-        public int Id { get; set; } 
-        public String Nombre { get; set; }
+        public int Id { get; set; }
+        public String Nombre { get; set; } = "";
         public Double Presupuesto { get; set; }
         public String Mes { get; set; }
         public List<Transacciones> Transacciones { get; set; }

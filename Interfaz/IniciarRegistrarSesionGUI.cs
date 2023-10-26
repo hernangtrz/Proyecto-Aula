@@ -14,11 +14,14 @@ namespace Interfaz
 {
     public partial class IniciarRegistrarSesionGUI : Form
     {
-        public UsuarioService usuarioService;    
+        public UsuarioService usuarioService;
+        public CuentaService cuentaService;
+
         public IniciarRegistrarSesionGUI()
         {
             InitializeComponent();
             usuarioService = new UsuarioService();
+            cuentaService = new CuentaService();
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
@@ -28,7 +31,8 @@ namespace Interfaz
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            String mensaje = Guardar();
+            String mensaje = GuardarUsuario();
+            GuardarCuenta();
             MessageBox.Show(mensaje, "Información al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtNombre.Text = "";
             txtApellido.Text = "";
@@ -38,11 +42,37 @@ namespace Interfaz
             txtTelefono.Text = "";
         }
 
-        private string Guardar()
+        private void GuardarCuenta()
+        {
+            Cuenta cuenta;
+            int id = 1;
+            List<Transacciones> t = new List<Transacciones>();
+            List<Categoria> c = new List<Categoria>();
+            Usuario u = new Usuario();
+            List<Usuario> listaUsuarios = usuarioService.ConsultarTodos().Usuarios;
+            foreach (var item in listaUsuarios)
+            {
+                if(String.Equals(item.NombreUsuario, txtNombreUsuario.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    u = item;
+                }
+            }
+            var cuentas = cuentaService.ConsultarTodos();
+            if (cuentas.Cuentas.Any())
+            {
+                id = cuentas.Cuentas.Last().Id + 1;
+
+            }
+            cuenta = new Cuenta(id,u,t,c);  
+            cuentaService.Guardar(cuenta);
+
+        }
+
+        private string GuardarUsuario()
         {
             if (ValidarTextosVacios())
             {
-                int id;
+                int id = 1;
                 String nombre = txtNombre.Text;
                 String apellido = txtApellido.Text;
                 String nombreUsuario = txtNombreUsuario.Text;
@@ -50,14 +80,11 @@ namespace Interfaz
                 String contraseña = txtContraseña.Text;
                 String telefono = txtTelefono.Text;
 
-                var consultaUsuarioResponse = usuarioService.ConsultarTodos();
-                if (consultaUsuarioResponse.Usuarios.Count == 0)
+                var usuarios = usuarioService.ConsultarTodos();
+                if (usuarios.Usuarios.Any())
                 {
-                    id = 1;
-                }
-                else
-                {
-                    id = consultaUsuarioResponse.Usuarios.Last().Id + 1;
+                    id = usuarios.Usuarios.Last().Id + 1;
+
                 }
                 if (validarUsuariosRepetidos(nombreUsuario))
                 {
@@ -121,11 +148,14 @@ namespace Interfaz
         {
             var consultaUsuarioResponse = usuarioService.ConsultarTodos();
             bool encontrado = false;
+            
             foreach (var item in consultaUsuarioResponse.Usuarios)
             {
-                if(item.NombreUsuario == txtUsuario.Text && item.Contraseña == txtContraseña2.Text)
+                if(String.Equals(item.NombreUsuario, txtUsuario.Text, StringComparison.OrdinalIgnoreCase)
+                   && item.Contraseña == txtContraseña2.Text)
                 {
-                    MenuPrincipalGUI m = new MenuPrincipalGUI();
+                    Cuenta cuenta = cuentaService.buscarUsuario(item.Id);
+                    MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
                     m.Show();
                     this.Hide();
                     encontrado = true;

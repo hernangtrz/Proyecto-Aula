@@ -45,17 +45,22 @@ namespace DAL
         public List<Transacciones> ConsultarTodos()
         {
             List<Transacciones> transacciones = new List<Transacciones>();
-            FileStream file = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             BinaryFormatter formatter = new BinaryFormatter();
-
-            if (new FileInfo(FileName).Length == 0)
-             {
-                Console.WriteLine("El archivo está vacío.");
-                formatter.Serialize(file, transacciones);
+            if (File.Exists(FileName) && new FileInfo(FileName).Length > 0)
+            {
+                using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    return (List<Transacciones>)formatter.Deserialize(fs);
+                }
             }
-            transacciones = (List<Transacciones>)formatter.Deserialize(file);
-            file.Close();
-            return transacciones;
+            else
+            {
+                using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    formatter.Serialize(fs, transacciones);
+                    return transacciones;
+                }
+            }
         }
 
         private bool EsEncontrado(Transacciones t, int identificacionBuscada)
