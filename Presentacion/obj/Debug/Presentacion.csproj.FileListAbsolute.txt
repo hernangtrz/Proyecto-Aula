@@ -10,3 +10,17 @@ C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Presentacion\obj\Debug\Presentac
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Presentacion\obj\Debug\Presentacion.exe
 C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Presentacion\obj\Debug\Presentacion.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\Presentacion.exe.config
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\Presentacion.exe
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\Presentacion.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\BLL.dll
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\ENTITY.dll
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\DAL.dll
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\BLL.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\ENTITY.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\bin\Debug\DAL.pdb
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\obj\Debug\Presentacion.csproj.AssemblyReference.cache
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\obj\Debug\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\obj\Debug\Presentacion.csproj.CopyComplete
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\obj\Debug\Presentacion.exe
+C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Presentacion\obj\Debug\Presentacion.pdb

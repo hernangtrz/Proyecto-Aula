@@ -138,5 +138,11 @@ namespace Interfaz
         {
             tabControl1.Size = new Size(this.ClientSize.Width - 20, this.ClientSize.Height - 40);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Informes c = new Informes();
+            
+        }
     }
 }

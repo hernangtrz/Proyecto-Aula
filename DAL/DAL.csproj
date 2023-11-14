@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CategoriaRepository.cs" />
+    <Compile Include="InformeRepository.cs" />
     <Compile Include="CuentaRepository.cs" />
     <Compile Include="TransaccionesRepository.cs" />
     <Compile Include="UsuarioRepository.cs" />

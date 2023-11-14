@@ -50,6 +50,7 @@ namespace Interfaz
             List<Categoria> c = new List<Categoria>();
             Usuario u = new Usuario();
             List<Usuario> listaUsuarios = usuarioService.ConsultarTodos().Usuarios;
+            Informe i = new Informe();
             foreach (var item in listaUsuarios)
             {
                 if(String.Equals(item.NombreUsuario, txtNombreUsuario.Text, StringComparison.OrdinalIgnoreCase))
@@ -63,7 +64,7 @@ namespace Interfaz
                 id = cuentas.Cuentas.Last().Id + 1;
 
             }
-            cuenta = new Cuenta(id,u,t,c);  
+            cuenta = new Cuenta(id,u,t,c,i);  
             cuentaService.Guardar(cuenta);
 
         }
@@ -163,7 +164,7 @@ namespace Interfaz
             }
             if(!encontrado)
             {
-                MessageBox.Show("Usuario o contraseña incorrctos");
+                MessageBox.Show("Usuario o contraseña incorrectos");
             }
             txtUsuario.Text = "";
             txtContraseña2.Text = "";

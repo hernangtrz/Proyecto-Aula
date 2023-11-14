@@ -14,13 +14,15 @@ namespace ENTITY
         public Usuario Usuario { get; set; }
         public List<Transacciones> Transacciones { get; set; }
         public List<Categoria> Categorias { get; set; }
+        public Informe Informe { get; set; }
 
-        public Cuenta(int id, Usuario usuario, List<Transacciones> transacciones, List<Categoria> categorias)
+        public Cuenta(int id, Usuario usuario, List<Transacciones> transacciones, List<Categoria> categorias, Informe informe)
         {
             Id = id;
             Usuario = usuario;
             Transacciones = transacciones;
             Categorias = categorias;
+            Informe = informe;
         }
 
         public Cuenta()

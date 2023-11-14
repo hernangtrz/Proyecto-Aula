@@ -426,6 +426,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tabControl1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "IniciarRegistrarSesionGUI";

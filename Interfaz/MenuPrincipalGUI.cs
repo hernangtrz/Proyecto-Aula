@@ -23,10 +23,6 @@ namespace Interfaz
             this.cuenta = cuenta;
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -78,9 +74,12 @@ namespace Interfaz
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+       
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Informes c = new Informes();
+            
         }
     }
 }
