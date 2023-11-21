@@ -1,6 +1,9 @@
 ﻿using ENTITY;
+using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -12,84 +15,167 @@ namespace DAL
 {
     public class CategoriaRepository
     {
-        private readonly string FileName = "Categorias.dat";
+        private readonly string ConnectionString = "user id=hernan;password=h123;data source=" +
+                             "(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)" +
+                             "(HOST=localhost)(PORT=1521))(CONNECT_DATA=" +
+                             "(SERVICE_NAME=XEPDB1)))";
 
-        public void Eliminar(int id)
+        public void Eliminar(int categoriaId, int cuentaId)
         {
-            List<Categoria> categorias = new List<Categoria>();
-            categorias = ConsultarTodos();
-            categorias.RemoveAll(obj => obj.Id == id);
-            using (Stream file = File.Open(FileName, FileMode.Create))
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
             {
-                BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(file, categorias);
-            }
+                try
+                {
+                    connection.Open();
 
+                    OracleCommand cmd = new OracleCommand("CategoriaPackage.EliminarCategoria", connection);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add("pCuentaId", OracleDbType.Int32).Value = cuentaId;
+                    cmd.Parameters.Add("pCategoriaId", OracleDbType.Int32).Value = categoriaId;
+
+
+                    cmd.ExecuteNonQuery();
+                }catch(Exception ex) {
+                    Console.WriteLine($"Error {ex}");
+                }
+                
+            }
         }
 
         public void Guardar(Categoria categoria)
         {
-            List<Categoria> categorias = ConsultarTodos();
-            categorias.Add(categoria);
-            BinaryFormatter formatter = new BinaryFormatter();
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
+            {
+                connection.Open();
 
-            FileStream stream = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.Write);
-            formatter.Serialize(stream, categorias);
-            stream.Close();
+                OracleCommand cmd = new OracleCommand("CategoriaPackage.CrearCategoria", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.Add("pNombre", OracleDbType.Varchar2).Value = categoria.Nombre;
+                cmd.Parameters.Add("pTipo", OracleDbType.Varchar2).Value = categoria.Tipo;
 
+                try
+                {
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error al intentar guardar la categoría: {ex.Message}");
+                }
+            }
         }
 
         public List<Categoria> ConsultarTodos()
         {
             List<Categoria> categorias = new List<Categoria>();
-            BinaryFormatter formatter = new BinaryFormatter();
-            if (File.Exists(FileName) && new FileInfo(FileName).Length > 0)
+
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
             {
-                using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("CategoriaPackage.ConsultarTodas", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    return (List<Categoria>)formatter.Deserialize(fs);
+                    Categoria categoria = new Categoria
+                    (
+                        Convert.ToInt32(reader["Categoria_id"]),
+                        reader["Nombre"].ToString(),
+                        reader["Tipo"].ToString()
+
+                    );
+
+                    categorias.Add(categoria);
                 }
             }
-            else
-            {
-                using (FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                {
-                    formatter.Serialize(fs, categorias);
-                    return categorias;
-                }
-            }
+
+            return categorias;
         }
 
-        private bool EsEncontrado(Categoria t, int identificacionBuscada)
+        public Categoria Buscar(int id)
         {
-            return t.Id == identificacionBuscada;
-        }
+            Categoria categoria = null;
 
-        public Categoria Buscar(int identificacion)
-        {
-            List<Categoria> categorias = ConsultarTodos();
-            foreach (var item in categorias)
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
             {
-                if (EsEncontrado(item, identificacion))
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("CategoriaPackage.Buscar", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("cur", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.ReturnValue;
+                cmd.Parameters.Add("pId", OracleDbType.Int32).Value = id;
+                cmd.ExecuteNonQuery();
+
+                OracleDataReader reader = ((OracleRefCursor)cmd.Parameters["cur"].Value).GetDataReader();
+
+                if (reader.Read())
                 {
-                    return item;
+                    categoria = new Categoria
+                    (
+                        Convert.ToInt32(reader["Categoria_id"]),
+                        reader["Nombre"].ToString(),
+                        reader["Tipo"].ToString()
+                    );
+                    
+
                 }
             }
-            return null;
+
+            return categoria;
         }
 
-        public Categoria BuscarNombre(String nombre)
+        public Categoria BuscarNombre(string nombre)
         {
-            List<Categoria> categorias = ConsultarTodos();
-            foreach (var item in categorias)
+            Categoria categoria = null;
+
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
             {
-                if (String.Equals(item.Nombre, nombre, StringComparison.OrdinalIgnoreCase))
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("CategoriaPackage.BuscarNombre", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("cur", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.ReturnValue;
+                cmd.Parameters.Add("pNombre", OracleDbType.Varchar2).Value = nombre;
+                cmd.ExecuteNonQuery();
+
+                OracleDataReader reader = ((OracleRefCursor)cmd.Parameters["cur"].Value).GetDataReader();
+
+                if (reader.Read())
                 {
-                    return item;
+                    categoria = new Categoria
+                    (
+                        Convert.ToInt32(reader["Categoria_id"]),
+                        reader["Nombre"].ToString(),
+                        reader["Tipo"].ToString()
+
+                    );
                 }
             }
-            return null;
+
+            return categoria;
+        }
+
+        public void ActualizarCategoria(int categoriaId, string nuevoNombre, string tipo)
+        {
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
+            {
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("CategoriaPackage.ActualizarCategoria", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                cmd.Parameters.Add("pCategoriaId", OracleDbType.Int32).Value = categoriaId;
+                cmd.Parameters.Add("pNuevoNombre", OracleDbType.Varchar2).Value = nuevoNombre;
+                cmd.Parameters.Add("pNuevoTipo", OracleDbType.Varchar2).Value = tipo;
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
+
 }

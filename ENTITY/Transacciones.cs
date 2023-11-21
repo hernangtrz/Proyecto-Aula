@@ -11,19 +11,32 @@ namespace ENTITY
     {
         public int Id { get; set; } 
         public String TipoTransaccion{get; set;}
-        public Double Monto { get; set; }
+        public Decimal Monto { get; set; }
         public DateTime Fecha { get; set; }
-        public Categoria Categoria { get; set; }
+        public int Categoria_id { get; set; }
         public String Descripcion { get; set; }
+        public int CuentaId { get; set; }
 
-        public Transacciones(int id, string tipoTransaccion, double monto, DateTime fecha, Categoria categoria, string descripcion)
+        public Transacciones(int id, string tipoTransaccion, decimal monto, DateTime fecha, string descripcion, int categoria_id, int cuentaId)
         {
             Id = id;
             TipoTransaccion = tipoTransaccion;
             Monto = monto;
             Fecha = fecha;
-            Categoria = categoria;
+            Categoria_id = categoria_id;
             Descripcion = descripcion;
+            CuentaId = cuentaId;
+        }
+
+        public Transacciones(string tipoTransaccion, Decimal monto, DateTime fecha, string descripcion, int cuentaId, int categoria_id)
+        {
+            TipoTransaccion = tipoTransaccion;
+            Monto = monto;
+            Fecha = fecha;
+            Descripcion = descripcion;
+            CuentaId = cuentaId;
+            Categoria_id = categoria_id;
+
         }
 
         public Transacciones()

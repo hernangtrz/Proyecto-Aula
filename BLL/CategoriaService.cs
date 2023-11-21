@@ -3,6 +3,7 @@ using ENTITY;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,13 +19,13 @@ namespace BLL
 
 
 
-        public string Eliminar(Categoria c)
+        public string Eliminar(Categoria c, int cuentaId)
         {
             try
             {
                 if (categoriaRepository.Buscar(c.Id) != null)
                 {
-                    categoriaRepository.Eliminar(c.Id);
+                    categoriaRepository.Eliminar(c.Id,cuentaId);
                     return ($"se han Eliminado Satisfactoriamente los datos de la Categoria: {c.Id} ");
                 }
                 else
@@ -93,6 +94,11 @@ namespace BLL
             return categoriaRepository.BuscarNombre(nombre);
         }
 
+        public Categoria Buscar(int id)
+        {
+            return categoriaRepository.Buscar(id);
+        }
+
 
         public class ConsultaCategoriaResponse
         {
@@ -111,6 +117,11 @@ namespace BLL
                 Message = message;
                 Encontrado = false;
             }
+        }
+
+        public void ActualizarCategoria(int id, string nombre, string tipo)
+        {
+            categoriaRepository.ActualizarCategoria(id,nombre,tipo);
         }
     }
 }

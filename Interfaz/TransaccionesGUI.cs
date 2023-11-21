@@ -19,7 +19,6 @@ namespace Interfaz
         List<Transacciones> list;
         TransaccionesService transaccionesService;
         CategoriaService categoriaService;
-        List<Categoria> listaCategorias;
         Cuenta cuenta;
         CuentaService cuentaService;
         public TransaccionesGUI(Cuenta cuenta)
@@ -28,10 +27,19 @@ namespace Interfaz
             this.cuenta = cuenta;
             transaccionesService = new TransaccionesService();
             categoriaService = new CategoriaService();
-            listaCategorias = categoriaService.ConsultarTodos().Categorias;
             InitializeComponent();
             list = transaccionesService.ConsultarTodos().Transacciones;
             this.cuenta = cuenta;   
+        }
+
+        public List<Categoria> CategoriaActualizadas()
+        {
+            return cuentaService.BuscarCategorias(cuenta.Id); 
+        }
+
+        public List<Transacciones> TransaccionesActualizadas()
+        {
+            return transaccionesService.BuscarPorCuenta(cuenta.Id);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,6 +73,25 @@ namespace Interfaz
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
+            cbCategoria.Items.Clear();
+            foreach (var item in CategoriaActualizadas())
+            {
+                if (cbTipoTransaccion.Text == "Ingreso")
+                {
+                    if(item.Tipo == "Ingreso")
+                    {
+                        cbCategoria.Items.Add(item.Nombre);
+                    }
+                }
+                if (cbTipoTransaccion.Text == "Gasto")
+                {
+                    if (item.Tipo == "Gasto")
+                    {
+                        cbCategoria.Items.Add(item.Nombre);
+                    }
+                }
+            }
+            
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
@@ -74,36 +101,18 @@ namespace Interfaz
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            int id = 1;
             String tipoTransaccion = cbTipoTransaccion.Text;
-            Double monto = Double.Parse(txtMonto.Text);
-            DateTime fecha = dtFecha.Value;
+            Decimal monto = Decimal.Parse(txtMonto.Text);
+            DateTime fecha = DateTime.Now;
             Categoria categoria = categoriaService.BuscarNombre(cbCategoria.Text);
             String descripcion = txtDescripcion.Text;
-            var transacciones = transaccionesService.ConsultarTodos();
-            if (transacciones.Transacciones.Any())
-            {
-                id = transacciones.Transacciones.Last().Id + 1;
-
-            }
-            Transacciones t = new Transacciones(id, tipoTransaccion, monto, fecha, categoria, descripcion);
-            if(categoria == null)
-            {
-                t.Categoria = new Categoria();
-            }
-            else
-            {
-                categoria.Transacciones.Add(t);
-                categoriaService.Eliminar(categoria);
-                categoria.calcularTotalGastato();
-                categoriaService.Guardar(categoria);
-            }
-            cuenta.Transacciones.Add(t);
-            cuentaService.Eliminar(cuenta.Id);
-            cuentaService.Guardar(cuenta);
+           
+            Transacciones t = new Transacciones(tipoTransaccion, monto, fecha, descripcion , cuenta.Id, categoria.Id);
+           
+            
             String message = transaccionesService.Guardar(t);
             MessageBox.Show(message);
-            CargarGrilla(cuenta.Transacciones);
+            CargarGrilla(TransaccionesActualizadas());
         }
 
         void CargarGrilla(List<Transacciones> list)
@@ -121,17 +130,8 @@ namespace Interfaz
 
         private void TransaccionesGUI_Load(object sender, EventArgs e)
         {
-            CargarGrilla(cuenta.Transacciones);
-            foreach (var item in cuenta.Categorias)
-            {
-                cbCategoria.Items.Add(item.Nombre);
-            }
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(transaccionesService.Eliminar(int.Parse(txtId.Text)));
-            CargarGrilla(transaccionesService.ConsultarTodos().Transacciones);
+            CargarGrilla(TransaccionesActualizadas());
+            
         }
 
         private void tabControl1_Resize(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace Interfaz
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Informes c = new Informes();
+            InformesGUI c = new InformesGUI();
             
         }
     }

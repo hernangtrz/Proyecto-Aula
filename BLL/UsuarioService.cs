@@ -11,30 +11,32 @@ namespace BLL
     public class UsuarioService
     {
         private readonly UsuarioRepository usuarioRepository;
+        private readonly CuentaRepository cuentaRepository;
         public UsuarioService()
         {
             usuarioRepository = new UsuarioRepository();
+            cuentaRepository = new CuentaRepository();
         }
 
-        public string Guardar(Usuario usuario)
+        public string GuardarUsuarioYCuenta(Usuario usuario, Cuenta cuenta)
         {
             try
             {
+                int cuentaId = cuentaRepository.Guardar(cuenta);
 
-                if (usuarioRepository.Buscar(usuario.Id) == null)
-                {
-                    usuarioRepository.Guardar(usuario);
-                    return $"Se han guardado correctamente los datos del usuario: {usuario.NombreUsuario} ";
-                }
-                else
-                {
-                    return $"Lo sentimos,ya hay un usuario con la Identificación {usuario.Id}";
-                }
+                // Asignar el Id de la cuenta al usuario
+                usuario.CuentaId = cuentaId;
+
+                // Guardar el usuario actualizado
+                usuarioRepository.Guardar(usuario);
+
+                return $"Se han guardado correctamente los datos de el usuario";
+
             }
             catch (Exception e)
             {
 
-                return $"Error de la Aplicacion: {e.Message}";
+                return $"Error de la Aplicacion usuario: {e.Message}";
             }
         }
 

@@ -18,48 +18,40 @@ namespace BLL
 
 
 
-        public string Eliminar(int Id)
-        {
-            try
-            {
-                if (cuentaRepository.Buscar(Id) != null)
-                {
-                    cuentaRepository.Eliminar(Id);
-                    return ($"se han Eliminado Satisfactoriamente la cuenta: {Id} ");
-                }
-                else
-                {
-                    return ($"Lo sentimos, no se encuentra registrada una cuenta con Id :  {Id}");
-                }
-            }
-            catch (Exception e)
-            {
+        //public string Eliminar(int Id)
+        //{
+        //    try
+        //    {
+        //        if (cuentaRepository.Buscar(Id) != null)
+        //        {
+        //            cuentaRepository.Eliminar(Id);
+        //            return ($"se han Eliminado Satisfactoriamente la cuenta: {Id} ");
+        //        }
+        //        else
+        //        {
+        //            return ($"Lo sentimos, no se encuentra registrada una cuenta con Id :  {Id}");
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    {
 
-                return $"Error de la Aplicacion: {e.Message}";
-            }
+        //        return $"Error de la Aplicacion: {e.Message}";
+        //    }
 
-        }
+        //}
 
         public string Guardar(Cuenta cuenta)
         {
             try
             {
-
-                if (cuentaRepository.Buscar(cuenta.Id) == null)
-                {
-
-                    cuentaRepository.Guardar(cuenta);
-                    return $"Se han guardado correctamente los datos de la cuenta con la id: {cuenta.Id} ";
-                }
-                else
-                {
-                    return $"Hubo un error";
-                }
+                cuentaRepository.Guardar(cuenta);
+                
+                return $"Se han guardado correctamente los datos de la cuenta con la id: {cuenta.Id} ";
             }
             catch (Exception e)
             {
 
-                return $"Error de la Aplicacion: {e.Message}";
+                return $"Error de la Aplicacion cuenta: {e.Message}";
             }
         }
 
@@ -82,7 +74,7 @@ namespace BLL
             catch (Exception e)
             {
 
-                return new ConsultaCuentaResponse("Error de Aplicacion: " + e.Message);
+                return new ConsultaCuentaResponse("Error de Aplicacion cuenta: " + e.Message);
             }
         }
 
@@ -110,9 +102,13 @@ namespace BLL
             return cuentaRepository.Buscar(id);
         }
 
-        public Cuenta buscarUsuario(int id)
+        public List<Categoria> BuscarCategorias(int id)
         {
-            return cuentaRepository.BuscarUsuario(id);
+            return cuentaRepository.BuscarCategoriasPorCuenta(id);
+        }
+
+        public void AsociarCategoria(int idCuenta, int idCategoria) {
+            cuentaRepository.AsociarCategoria(idCuenta, idCategoria);
         }
     }
 }

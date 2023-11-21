@@ -11,10 +11,10 @@ namespace BLL
 {
     public class TransaccionesService
     {
-        private readonly TransaccionesRepository transaccionesRepository;
+        private readonly TransaccionRepository transaccionesRepository;
         public TransaccionesService()
         {
-            transaccionesRepository = new TransaccionesRepository();
+            transaccionesRepository = new TransaccionRepository();
         }
 
         
@@ -50,7 +50,7 @@ namespace BLL
                 {
 
                     transaccionesRepository.Guardar(transaccion);
-                    return $"Se han guardado correctamente los datos de la transaccion con la id: {transaccion.Id} ";
+                    return $"Se han guardado correctamente los datos de la transaccion";
                 }
                 else
                 {
@@ -85,6 +85,11 @@ namespace BLL
 
                 return new ConsultaTransaccionResponse("Error de Aplicacion: " + e.Message);
             }
+        }
+
+        public List<Transacciones> BuscarPorCuenta(int id)
+        {
+            return transaccionesRepository.BuscarPorCuenta(id);                
         }
 
         public class ConsultaTransaccionResponse

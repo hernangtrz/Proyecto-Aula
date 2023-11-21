@@ -32,65 +32,29 @@ namespace Interfaz
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
             String mensaje = GuardarUsuario();
-            GuardarCuenta();
             MessageBox.Show(mensaje, "Información al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtNombreUsuario.Text = "";
             txtCorreo.Text = "";
             txtContraseña.Text = "";
-            txtTelefono.Text = "";
-        }
-
-        private void GuardarCuenta()
-        {
-            Cuenta cuenta;
-            int id = 1;
-            List<Transacciones> t = new List<Transacciones>();
-            List<Categoria> c = new List<Categoria>();
-            Usuario u = new Usuario();
-            List<Usuario> listaUsuarios = usuarioService.ConsultarTodos().Usuarios;
-            Informe i = new Informe();
-            foreach (var item in listaUsuarios)
-            {
-                if(String.Equals(item.NombreUsuario, txtNombreUsuario.Text, StringComparison.OrdinalIgnoreCase))
-                {
-                    u = item;
-                }
-            }
-            var cuentas = cuentaService.ConsultarTodos();
-            if (cuentas.Cuentas.Any())
-            {
-                id = cuentas.Cuentas.Last().Id + 1;
-
-            }
-            cuenta = new Cuenta(id,u,t,c,i);  
-            cuentaService.Guardar(cuenta);
-
         }
 
         private string GuardarUsuario()
         {
             if (ValidarTextosVacios())
             {
-                int id = 1;
                 String nombre = txtNombre.Text;
                 String apellido = txtApellido.Text;
                 String nombreUsuario = txtNombreUsuario.Text;
                 String correo = txtCorreo.Text;
-                String contraseña = txtContraseña.Text;
-                String telefono = txtTelefono.Text;
-
-                var usuarios = usuarioService.ConsultarTodos();
-                if (usuarios.Usuarios.Any())
-                {
-                    id = usuarios.Usuarios.Last().Id + 1;
-
-                }
+                String contrasenia = txtContraseña.Text;
+                
                 if (validarUsuariosRepetidos(nombreUsuario))
                 {
-                    Usuario usuario = new Usuario(id, nombre, apellido, nombreUsuario, correo, contraseña, telefono);
-                    return usuarioService.Guardar(usuario);
+                    Cuenta cuenta = new Cuenta(0);
+                    Usuario usuario = new Usuario(nombre, apellido, nombreUsuario, contrasenia, correo);
+                    return usuarioService.GuardarUsuarioYCuenta(usuario, cuenta);
                 }
                 else
                 {
@@ -123,16 +87,15 @@ namespace Interfaz
             {
                 return false;
             }
-            if (String.IsNullOrEmpty((txtTelefono).Text))
-            {
-                return false;
-            }
 
             return true;
         }
         private bool validarUsuariosRepetidos(String usuario)
         {
             var consultaUsuarioResponse = usuarioService.ConsultarTodos();
+            if( consultaUsuarioResponse.Usuarios == null){
+                return true;
+            }
             foreach (var item in consultaUsuarioResponse.Usuarios)
             {
                 if(item.NombreUsuario == usuario)
@@ -153,9 +116,9 @@ namespace Interfaz
             foreach (var item in consultaUsuarioResponse.Usuarios)
             {
                 if(String.Equals(item.NombreUsuario, txtUsuario.Text, StringComparison.OrdinalIgnoreCase)
-                   && item.Contraseña == txtContraseña2.Text)
+                   && item.Contrasenia == txtContraseña2.Text)
                 {
-                    Cuenta cuenta = cuentaService.buscarUsuario(item.Id);
+                    Cuenta cuenta = cuentaService.buscar(item.CuentaId);
                     MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
                     m.Show();
                     this.Hide();
@@ -170,5 +133,9 @@ namespace Interfaz
             txtContraseña2.Text = "";
         }
 
+        private void IniciarRegistrarSesionGUI_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

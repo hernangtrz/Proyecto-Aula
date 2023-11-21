@@ -15,18 +15,23 @@ namespace Interfaz
     public partial class CategoriasGUI : Form
     {
         CategoriaService categoriaService;
-        List<Categoria> listaCategorias;
+        PresupuestoService presupuestoService;
         CuentaService cuentaService;
         Cuenta cuenta;
         public CategoriasGUI(Cuenta cuenta)
         {
             cuentaService = new CuentaService();    
             categoriaService = new CategoriaService();
-            listaCategorias = categoriaService.ConsultarTodos().Categorias;
+            presupuestoService = new PresupuestoService();
             InitializeComponent();
             this.cuenta = cuenta;   
         }
 
+        private List<Categoria> CategoriasActualizadas()
+        {
+             return cuentaService.BuscarCategorias(cuenta.Id);
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
@@ -48,80 +53,49 @@ namespace Interfaz
 
         private void Categorias_Load(object sender, EventArgs e)
         {
-            CargarGrilla(cuenta.Categorias);
+            CargarGrilla(cuentaService.BuscarCategorias(cuenta.Id));
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            int id = 1;
-            String nombre = txtNombreAñadir.Text;
-            Double presupuesto = Double.Parse(txtPresupuestoAñadir.Text);
-            string mes = cbMes.Text;
-            List<Transacciones> listaTransacciones = new List<Transacciones>();
-            var categorias = categoriaService.ConsultarTodos();
-            if (categorias.Categorias.Any())
-            {
-                id = categorias.Categorias.Last().Id + 1;
-
-            }
-
-            Categoria c = new Categoria(id, nombre, presupuesto, mes, listaTransacciones);
-            cuenta.Categorias.Add(c);
-            cuentaService.Eliminar(cuenta.Id);
-            cuentaService.Guardar(cuenta);
-            String message = categoriaService.Guardar(c);
-            MessageBox.Show(message);
-            CargarGrilla(cuenta.Categorias);
+            
         }
 
         void CargarGrilla(List<Categoria> list)
         {
-            grillaCategorias.Rows.Clear();
+            dataGridViewCategorias.Rows.Clear();
 
             foreach (var item in list)
             {
-                grillaCategorias.Rows.Add(item.Nombre, item.Transacciones.Count, item.TotalGastado, item.Presupuesto,item.Mes);
+                dataGridViewCategorias.Rows.Add(item.Nombre, item.Tipo);
             }
 
         }
 
-
-        private void btnEliminar_Click_1(object sender, EventArgs e)
-        {
-            Categoria c = categoriaService.BuscarNombre(txtNombreEliminar.Text);
-            if(c == null)
-            {
-                MessageBox.Show("No se encontro la categoria con el nombre: " + txtNombreEliminar.Text);
-            }
-            else
-            {
-                MessageBox.Show(categoriaService.Eliminar(c));
-                CargarGrilla(categoriaService.ConsultarTodos().Categorias);
-            }
-        }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Categoria c = categoriaEncontrada();
-            if (c == null){
-                MessageBox.Show("No se encontro la categoria con el nombre: " + txtNombreEliminar.Text);
-            }
-            else
-            {
-                cbMesEditar.Visible = true;
-                txtPresupuestoEditar.Visible = true;
-                lblMes.Visible = true;
-                lblPresupuesto.Visible = true;
-                txtPresupuestoEditar.Text = c.Presupuesto.ToString();
-                cbMesEditar.Text = c.Mes;
-                btnActualizar.Enabled = true;
-            }              
+            //Categoria c = categoriaEncontrada();
+            //if (c == null)
+            //{
+            //    MessageBox.Show("No se encontro la categoria con el nombre: " + txtNombreEliminar.Text);
+            //}
+            //else
+            //{
+            //    cbMesEditar.Visible = true;
+            //    txtPresupuestoEditar.Visible = true;
+            //    lblMes.Visible = true;
+            //    lblPresupuesto.Visible = true;
+            //    txtPresupuestoEditar.Text = c.Presupuesto.ToString();
+            //    cbMesEditar.Text = c.Mes;
+            //    btnActualizar.Enabled = true;
+            //}
         }
 
         String nombre;
         public Categoria categoriaEncontrada()
         {
-            nombre = txtNombreEditar.Text;
+            nombre = txtNombre.Text;
             Categoria c = categoriaService.BuscarNombre(nombre);
             if (c != null)
             {
@@ -131,20 +105,20 @@ namespace Interfaz
         }
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            Categoria c = categoriaService.BuscarNombre(nombre);
-            c.Nombre = txtNombreEditar.Text;
-            c.Mes = cbMesEditar.Text;
-            c.Presupuesto = Double.Parse(txtPresupuestoEditar.Text);
-            categoriaService.Eliminar(c);
-            categoriaService.Guardar(c);
-            btnActualizar.Enabled = false;
-            cbMesEditar.Visible = false;
-            txtPresupuestoEditar.Visible = false;
-            lblMes.Visible = false;
-            lblPresupuesto.Visible = false;
-            txtNombreEditar.Text = "";
-            MessageBox.Show("Categoria Actualizada");
-            CargarGrilla(categoriaService.ConsultarTodos().Categorias);
+            //Categoria c = categoriaService.BuscarNombre(nombre);
+            //c.Nombre = txtNombreEditar.Text;
+            //c.Mes = cbMesEditar.Text;
+            //c.Presupuesto = Double.Parse(txtPresupuestoEditar.Text);
+            //categoriaService.Eliminar(c);
+            //categoriaService.Guardar(c);
+            //btnActualizar.Enabled = false;
+            //cbMesEditar.Visible = false;
+            //txtPresupuestoEditar.Visible = false;
+            //lblMes.Visible = false;
+            //lblPresupuesto.Visible = false;
+            //txtNombreEditar.Text = "";
+            //MessageBox.Show("Categoria Actualizada");
+            //CargarGrilla(categoriaService.ConsultarTodos().Categorias);
         }
 
         private void cbMes_SelectedIndexChanged(object sender, EventArgs e)
@@ -154,7 +128,122 @@ namespace Interfaz
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Informes c = new Informes();
+            InformesGUI c = new InformesGUI();
+        }
+
+        private void grillaCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+      
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            Categoria categoria;
+            bool encontro = false;
+            foreach (var item in cuentaService.BuscarCategorias(cuenta.Id))
+            {
+                if (string.Equals(item.Nombre, txtNombre.Text, StringComparison.OrdinalIgnoreCase))
+                {
+                    encontro = true;
+                }
+            }
+            if (editar == false)
+            {
+                String nombre = txtNombre.Text;
+                String tipo = cbTipo.Text;
+                if (categoriaService.BuscarNombre(nombre) == null)
+                {
+                    categoria = new Categoria(nombre, tipo);
+                    categoriaService.Guardar(categoria);
+                }
+                
+
+                if (!encontro)
+                {
+                    cuentaService.AsociarCategoria(cuenta.Id, categoriaService.BuscarNombre(nombre).Id);
+                    MessageBox.Show("Categoria Añadida");
+                    txtNombre.Text = "";
+                    cbTipo.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Ya hay una categoria con ese nombre");
+                }
+                CargarGrilla(CategoriasActualizadas());
+            }
+            else
+            {
+                if (!encontro)
+                {
+                    foreach (var item in CategoriasActualizadas())
+                    {
+                        if (item.Nombre == dataGridViewCategorias.SelectedRows[0].Cells["nombreCategoria"].Value.ToString())
+                        {
+                            categoriaService.ActualizarCategoria(item.Id,txtNombre.Text,cbTipo.Text);
+                        }
+                    }
+                    MessageBox.Show("Categoria Actualizada");
+                    txtNombre.Text = "";
+                    cbTipo.Text = "";
+                    editar = false;
+                }
+                else
+                {
+                    MessageBox.Show("Ya hay una categoria con ese nombre");
+                }
+                CargarGrilla(CategoriasActualizadas());
+
+            }
+
+        }
+
+        private bool editar = false;
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewCategorias.SelectedRows.Count > 0)
+            {
+                editar = true;
+                txtNombre.Text = dataGridViewCategorias.SelectedRows[0].Cells["nombreCategoria"].Value.ToString();
+                string tipo = dataGridViewCategorias.SelectedRows[0].Cells["tipoCategoria"].Value.ToString();   
+                if(tipo == "Ingreso")
+                {
+                    cbTipo.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbTipo.SelectedIndex = 1;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewCategorias.SelectedRows.Count > 0)
+            {
+                foreach (var item in CategoriasActualizadas())
+                {
+                    if (item.Nombre == dataGridViewCategorias.SelectedRows[0].Cells["nombreCategoria"].Value.ToString())
+                    {
+                        categoriaService.Eliminar(item, cuenta.Id);
+                    }
+                }
+                MessageBox.Show("Categoria Eliminada");
+                txtNombre.Text = "";
+                cbTipo.Text = "";
+                CargarGrilla(CategoriasActualizadas());
+
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una fila");
+            }
         }
     }
 }

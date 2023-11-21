@@ -27,3 +27,27 @@ C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.Pro
 C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.TransaccionesGUI.resources
 C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.csproj.GenerateResource.cache
 C:\Users\JhonM\OneDrive\Escritorio\Proyecto-Aula\Interfaz\obj\Debug\Interfaz.csproj.CoreCompileInputs.cache
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Text.Json.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Memory.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.ValueTuple.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Buffers.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\BLL.dll.config
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\DAL.dll.config
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Text.Json.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Memory.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.ValueTuple.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Buffers.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.AñadirPresupuestoGUI.resources
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.PresupuestosGUI.resources
+C:\Users\HERNAN GUTIERREZ\Desktop\Proyecto Aula\Interfaz\obj\Debug\Interfaz.InformesGUI.resources

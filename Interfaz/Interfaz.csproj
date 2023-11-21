@@ -47,17 +47,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AñadirPresupuestoGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AñadirPresupuestoGUI.Designer.cs">
+      <DependentUpon>AñadirPresupuestoGUI.cs</DependentUpon>
+    </Compile>
     <Compile Include="CategoriasGUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CategoriasGUI.Designer.cs">
       <DependentUpon>CategoriasGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Informes.cs">
+    <Compile Include="PresupuestosGUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Informes.Designer.cs">
-      <DependentUpon>Informes.cs</DependentUpon>
+    <Compile Include="PresupuestosGUI.Designer.cs">
+      <DependentUpon>PresupuestosGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InformesGUI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InformesGUI.Designer.cs">
+      <DependentUpon>InformesGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="TransaccionesGUI.cs">
       <SubType>Form</SubType>
@@ -79,17 +91,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AñadirPresupuestoGUI.resx">
+      <DependentUpon>AñadirPresupuestoGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CategoriasGUI.resx">
       <DependentUpon>CategoriasGUI.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Informes.resx">
-      <DependentUpon>Informes.cs</DependentUpon>
+    <EmbeddedResource Include="InformesGUI.resx">
+      <DependentUpon>InformesGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IniciarRegistrarSesionGUI.resx">
       <DependentUpon>IniciarRegistrarSesionGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipalGUI.resx">
       <DependentUpon>MenuPrincipalGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresupuestosGUI.resx">
+      <DependentUpon>PresupuestosGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -13,22 +13,28 @@ namespace ENTITY
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string NombreUsuario { get; set; }
+        public string Contrasenia { get; set; }
         public string Correo { get; set; }
-        public String telefono { get; set; }
-        public string Contraseña { get; set; }
+        public int CuentaId { get; set; }
 
-        public Usuario(int id, string nombre, string apellido, string NombreUsuario, string correo, string contraseña, String telefono)
+        public Usuario(string nombre, string apellido, string nombreUsuario, string contrasenia, string correo)
         {
-            this.Id = id;
-            this.Nombre = nombre;
-            this.Apellido = apellido;
-            this.Correo = correo;
-            this.telefono = telefono;
-            this.Contraseña = contraseña;
-            this.NombreUsuario = NombreUsuario;
+            Nombre = nombre;
+            Apellido = apellido;
+            NombreUsuario = nombreUsuario;
+            Contrasenia = contrasenia;
+            Correo = correo;
         }
 
-        public Usuario() { }
-
+        public Usuario(int id, string nombre, string apellido, string nombreUsuario, string contrasenia, string correo, int cuentaId)
+        {
+            Id = id;
+            Nombre = nombre;
+            Apellido = apellido;
+            NombreUsuario = nombreUsuario;
+            Contrasenia = contrasenia;
+            Correo = correo;
+            CuentaId = cuentaId;
+        }
     }
 }

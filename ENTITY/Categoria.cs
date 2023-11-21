@@ -10,30 +10,30 @@ namespace ENTITY
     public class Categoria
     {
         public int Id { get; set; }
-        public String Nombre { get; set; } = "";
-        public Double Presupuesto { get; set; }
-        public String Mes { get; set; }
-        public List<Transacciones> Transacciones { get; set; }
-        public Double TotalGastado { get; set; } = 0;
+        public String Nombre { get; set; }
+        public String Tipo { get; set; }    
+        public int TotalTransacciones { get; set; } 
 
-        public Categoria(int id, string nombre, Double presupuesto, string mes, List<Transacciones> transacciones)
+        public Categoria(string nombre, string tipo)
+        {
+            Nombre = nombre;
+            Tipo = tipo;    
+        }
+
+        public Categoria(int id, string nombre, string tipo)
         {
             Id = id;
             Nombre = nombre;
-            Presupuesto = presupuesto;
-            Mes = mes;
-            Transacciones = transacciones;
+            Tipo = tipo;
         }
 
-        public void calcularTotalGastato()
-        {
-            foreach (var item in Transacciones)
-            {
-                TotalGastado = TotalGastado + item.Monto;                
-            }
-        }
-        public Categoria()
-        {
-        }
+        //public void calcularTotalGastado()
+        //{
+        //    foreach (var item in Transacciones)
+        //    {
+        //        TotalGastado = TotalGastado + item.Monto;                
+        //    }
+        //}
+
     }
 }
