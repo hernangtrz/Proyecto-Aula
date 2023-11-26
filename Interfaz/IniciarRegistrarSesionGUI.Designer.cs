@@ -76,7 +76,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.IniciarSesion);
             this.tabControl1.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
-            this.tabControl1.Location = new System.Drawing.Point(37, 9);
+            this.tabControl1.Location = new System.Drawing.Point(37, 13);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -254,10 +254,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Interfaz.Properties.Resources.Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(68, 118);
+            this.pictureBox2.Location = new System.Drawing.Point(104, 107);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(296, 274);
+            this.pictureBox2.Size = new System.Drawing.Size(222, 229);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             // 
@@ -266,7 +266,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.Font = new System.Drawing.Font("Cascadia Code", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.SystemColors.Control;
-            this.label11.Location = new System.Drawing.Point(60, 34);
+            this.label11.Location = new System.Drawing.Point(51, 30);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(325, 59);
@@ -312,10 +312,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Interfaz.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(68, 118);
+            this.pictureBox1.Location = new System.Drawing.Point(108, 106);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(296, 274);
+            this.pictureBox1.Size = new System.Drawing.Size(224, 231);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
@@ -324,7 +324,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(60, 34);
+            this.label1.Location = new System.Drawing.Point(54, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(325, 59);

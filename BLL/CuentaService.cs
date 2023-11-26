@@ -110,5 +110,10 @@ namespace BLL
         public void AsociarCategoria(int idCuenta, int idCategoria) {
             cuentaRepository.AsociarCategoria(idCuenta, idCategoria);
         }
+
+        public List<Presupuestos> BuscarPresupuestos(int id)
+        {
+            return cuentaRepository.BuscarPresupuestosPorCuenta(id);
+        }
     }
 }

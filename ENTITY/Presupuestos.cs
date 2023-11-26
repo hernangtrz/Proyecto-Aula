@@ -11,7 +11,7 @@ namespace ENTITY
         public int Id { get; set; }
         public Decimal Monto { get; set; }   
         public String Mes { get; set; }
-        public Decimal TotalTransferencias { get; set; }        
+        public Decimal TotalTransacciones { get; set; }        
 
         public Presupuestos(Decimal monto, string mes)
         {
@@ -24,7 +24,7 @@ namespace ENTITY
             Id = id;
             Monto = monto;
             Mes = mes;
-            this.TotalTransferencias = TotalTransferencias; 
+            this.TotalTransacciones = TotalTransferencias; 
         }
     }
 }

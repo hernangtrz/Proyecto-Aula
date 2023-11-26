@@ -36,10 +36,12 @@ namespace DAL
 
 
                     cmd.ExecuteNonQuery();
-                }catch(Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     Console.WriteLine($"Error {ex}");
                 }
-                
+
             }
         }
 
@@ -121,7 +123,7 @@ namespace DAL
                         reader["Nombre"].ToString(),
                         reader["Tipo"].ToString()
                     );
-                    
+
 
                 }
             }
@@ -176,6 +178,43 @@ namespace DAL
                 cmd.ExecuteNonQuery();
             }
         }
-    }
 
+        public List<Transacciones> TransaccionesPorCategoria(int categoriaId)
+        {
+            List<Transacciones> transacciones = new List<Transacciones>();
+
+
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
+            {
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("CategoriaPackage.TransaccionesPorCategoria", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("cur", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.ReturnValue;
+                cmd.Parameters.Add("pCategoriaId", OracleDbType.Int32).Value = categoriaId;
+                cmd.ExecuteNonQuery();
+
+                OracleDataReader reader = ((OracleRefCursor)cmd.Parameters["cur"].Value).GetDataReader();
+
+
+                while (reader.Read())
+                {
+                    int Id = Convert.ToInt32(reader["Transaccion_id"]);
+                    String TipoTransaccion = reader["tipo"].ToString();
+                    Decimal Monto = Convert.ToDecimal(reader["Monto"]);
+                    DateTime Fecha = Convert.ToDateTime(reader["Fecha"]);
+                    String Descripcion = reader["Descripcion"].ToString();
+                    int CategoriaId = Convert.ToInt32(reader["Categoria_id"]);
+                    int CuentaId = Convert.ToInt32(reader["Cuenta_Id"]);
+                    Transacciones transaccion = new Transacciones(Id, TipoTransaccion, Monto, Fecha, Descripcion, CategoriaId, CuentaId);
+                    transacciones.Add(transaccion);
+                }
+
+            }
+
+            return transacciones;
+
+
+        }
+    }
 }

@@ -42,34 +42,6 @@ namespace Interfaz
             return transaccionesService.BuscarPorCuenta(cuenta.Id);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
-            m.Show();
-            this.Hide();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Dispose();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            CategoriasGUI c = new CategoriasGUI(cuenta);
-            c.Show();
-            this.Hide();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -139,10 +111,43 @@ namespace Interfaz
             tabControl1.Size = new Size(this.ClientSize.Width - 20, this.ClientSize.Height - 40);
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            InformesGUI c = new InformesGUI();
-            
+            MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
+            m.Show();
+            this.Hide();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            CategoriasGUI c = new CategoriasGUI(cuenta);
+            c.Show();
+            this.Hide();
+        }
+
+        private void btnPresupuestos_Click(object sender, EventArgs e)
+        {
+            PresupuestosGUI p = new PresupuestosGUI(cuenta);
+            p.Show();
+            this.Hide();
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+            InformesGUI i = new InformesGUI(cuenta);
+            i.Show();
+            this.Hide();
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

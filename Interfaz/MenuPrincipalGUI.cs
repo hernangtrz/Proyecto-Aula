@@ -83,7 +83,7 @@ namespace Interfaz
 
         private void btnInformes_Click(object sender, EventArgs e)
         {
-            InformesGUI i = new InformesGUI();
+            InformesGUI i = new InformesGUI(cuenta);
             i.Show();
             this.Hide();
         }

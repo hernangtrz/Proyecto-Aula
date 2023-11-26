@@ -42,7 +42,7 @@ namespace BLL
 
         public int Guardar(Presupuestos presupuesto)
         {
-                 return presupuestoRepository.Guardar(presupuesto);
+            return presupuestoRepository.Guardar(presupuesto);
 
         }
 
@@ -91,6 +91,11 @@ namespace BLL
         public Presupuestos buscar(int id)
         {
             return presupuestoRepository.Buscar(id);
+        }
+
+        public Categoria buscarCategoriaPorPresupuesto(int id)
+        {
+            return presupuestoRepository.BuscarCategoriaPorPresupuesto(id);
         }
 
         public void AsignarPresupuestoACategoria(int categoriaId, int presupuestoId, int cuentaId)

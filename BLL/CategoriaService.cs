@@ -123,5 +123,10 @@ namespace BLL
         {
             categoriaRepository.ActualizarCategoria(id,nombre,tipo);
         }
+
+        public List<Transacciones> TransaccionesPorCategoria(int categoriaId)
+        {
+            return categoriaRepository.TransaccionesPorCategoria(categoriaId);
+        }
     }
 }

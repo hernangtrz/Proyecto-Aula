@@ -1,5 +1,6 @@
 ﻿using ENTITY;
 using Oracle.ManagedDataAccess.Client;
+using Oracle.ManagedDataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -135,6 +136,37 @@ namespace DAL
                     cmd.ExecuteNonQuery();
                 }
             }
+
+        }
+
+        public Categoria BuscarCategoriaPorPresupuesto(int presupuestoId)
+        {
+            Categoria categoria = null;
+            using (OracleConnection connection = new OracleConnection(ConnectionString))
+            {
+                connection.Open();
+
+                OracleCommand cmd = new OracleCommand("PresupuestoPackage.ObtenerCategoriaPorPresupuesto", connection);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.Add("cur", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.ReturnValue;
+                cmd.Parameters.Add("pPresupuestoId", OracleDbType.Int32).Value = presupuestoId;
+                cmd.ExecuteNonQuery();
+
+                OracleDataReader reader = ((OracleRefCursor)cmd.Parameters["cur"].Value).GetDataReader();
+                if (reader.Read())
+                {
+                    categoria = new Categoria
+                    (
+                        Convert.ToInt32(reader["Categoria_id"]),
+                        reader["Nombre"].ToString(),
+                        reader["Tipo"].ToString()
+                    );
+
+
+                }
+
+            }
+            return categoria;
 
         }
 

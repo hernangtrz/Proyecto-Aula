@@ -128,7 +128,7 @@ namespace Interfaz
 
         private void button4_Click(object sender, EventArgs e)
         {
-            InformesGUI c = new InformesGUI();
+            InformesGUI c = new InformesGUI(cuenta);
         }
 
         private void grillaCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)

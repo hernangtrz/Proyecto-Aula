@@ -37,16 +37,24 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.layoutPresupuestos = new System.Windows.Forms.FlowLayoutPanel();
+            this.layoutPadre = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAñadir = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cbCategorias = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbMes = new System.Windows.Forms.ComboBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -167,11 +175,28 @@
             this.panel2.Size = new System.Drawing.Size(153, 119);
             this.panel2.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Interfaz.Properties.Resources.Logo___copia;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(111, 110);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(77)))));
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.cbCategorias);
+            this.panel4.Controls.Add(this.label1);
+            this.panel4.Controls.Add(this.cbMes);
+            this.panel4.Controls.Add(this.txtMonto);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Controls.Add(this.label3);
+            this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.btnAñadir);
-            this.panel4.Controls.Add(this.layoutPresupuestos);
+            this.panel4.Controls.Add(this.layoutPadre);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Location = new System.Drawing.Point(144, 0);
             this.panel4.Name = "panel4";
@@ -182,38 +207,123 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(240, 22);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(144, 25);
             this.label6.TabIndex = 12;
             this.label6.Text = "Presupuestos";
             // 
-            // layoutPresupuestos
+            // layoutPadre
             // 
-            this.layoutPresupuestos.Location = new System.Drawing.Point(15, 79);
-            this.layoutPresupuestos.Name = "layoutPresupuestos";
-            this.layoutPresupuestos.Size = new System.Drawing.Size(644, 339);
-            this.layoutPresupuestos.TabIndex = 13;
+            this.layoutPadre.Location = new System.Drawing.Point(15, 119);
+            this.layoutPadre.Name = "layoutPadre";
+            this.layoutPadre.Size = new System.Drawing.Size(309, 331);
+            this.layoutPadre.TabIndex = 16;
             // 
             // btnAñadir
             // 
-            this.btnAñadir.Location = new System.Drawing.Point(19, 50);
+            this.btnAñadir.Location = new System.Drawing.Point(467, 301);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(75, 23);
-            this.btnAñadir.TabIndex = 0;
+            this.btnAñadir.TabIndex = 17;
             this.btnAñadir.Text = "Añadir";
             this.btnAñadir.UseVisualStyleBackColor = true;
-            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click_1);
             // 
-            // pictureBox1
+            // cbCategorias
             // 
-            this.pictureBox1.Image = global::Interfaz.Properties.Resources.Logo___copia;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(111, 110);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.cbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategorias.FormattingEnabled = true;
+            this.cbCategorias.Location = new System.Drawing.Point(458, 150);
+            this.cbCategorias.Name = "cbCategorias";
+            this.cbCategorias.Size = new System.Drawing.Size(141, 21);
+            this.cbCategorias.TabIndex = 26;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(391, 153);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 15);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "Categoria:";
+            // 
+            // cbMes
+            // 
+            this.cbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMes.FormattingEnabled = true;
+            this.cbMes.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
+            this.cbMes.Location = new System.Drawing.Point(458, 238);
+            this.cbMes.Name = "cbMes";
+            this.cbMes.Size = new System.Drawing.Size(141, 21);
+            this.cbMes.TabIndex = 24;
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(458, 193);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(141, 20);
+            this.txtMonto.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(427, 241);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 15);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Mes:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(415, 196);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 15);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Monto:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(389, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(210, 25);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Añadir Presupuesto";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(15, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(210, 25);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Lista presupuestos";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // PresupuestosGUI
             // 
@@ -226,12 +336,13 @@
             this.Name = "PresupuestosGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PresupuestosGUI";
+            this.Load += new System.EventHandler(this.PresupuestosGUI_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,7 +361,15 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel layoutPresupuestos;
+        private System.Windows.Forms.FlowLayoutPanel layoutPadre;
         private System.Windows.Forms.Button btnAñadir;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbCategorias;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbMes;
+        private System.Windows.Forms.TextBox txtMonto;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }

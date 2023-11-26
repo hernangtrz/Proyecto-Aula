@@ -167,6 +167,40 @@ public class CuentaRepository
         }
     }
 
+    public List<Presupuestos> BuscarPresupuestosPorCuenta(int cuentaId)
+    {
+        List<Presupuestos> presupuestos = new List<Presupuestos>();
 
+        using (OracleConnection connection = new OracleConnection(ConnectionString))
+        {
+            connection.Open();
+
+            OracleCommand cmd = new OracleCommand("CuentaPackage.ConsultarPresupuestosPorCuenta", connection);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.Add("cur", OracleDbType.RefCursor).Direction = System.Data.ParameterDirection.ReturnValue;
+            cmd.Parameters.Add("pCuentaId", OracleDbType.Int32).Value = cuentaId;
+
+            cmd.ExecuteNonQuery();
+
+            OracleDataReader reader = ((OracleRefCursor)cmd.Parameters["cur"].Value).GetDataReader();
+
+            while (reader.Read())
+            {
+                Presupuestos Presupuesto;
+                Presupuesto = new Presupuestos
+                (
+                    Convert.ToInt32(reader["Presupuesto_id"]),
+                    Convert.ToDecimal(reader["Monto"]),
+                    reader["Mes"].ToString(),
+                    Convert.ToDecimal(reader["TotalTransacciones"])
+
+                );
+
+                presupuestos.Add(Presupuesto);
+            }
+
+            return presupuestos;
+        }
+    }
 
 }
