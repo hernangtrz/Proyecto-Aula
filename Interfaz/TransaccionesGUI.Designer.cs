@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransaccionesGUI));
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -77,7 +79,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(643, 418);
+            this.tabPage2.Size = new System.Drawing.Size(951, 625);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registrar";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -95,14 +97,14 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.txtMonto);
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(12, 13);
+            this.panel4.Location = new System.Drawing.Point(-7, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(634, 392);
+            this.panel4.Size = new System.Drawing.Size(924, 532);
             this.panel4.TabIndex = 21;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(231, 323);
+            this.btnRegistrar.Location = new System.Drawing.Point(392, 359);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(169, 30);
             this.btnRegistrar.TabIndex = 22;
@@ -114,7 +116,7 @@
             // 
             this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(289, 170);
+            this.cbCategoria.Location = new System.Drawing.Point(450, 206);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(132, 21);
             this.cbCategoria.TabIndex = 21;
@@ -123,7 +125,7 @@
             // 
             this.lbCategoria.AutoSize = true;
             this.lbCategoria.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbCategoria.Location = new System.Drawing.Point(204, 173);
+            this.lbCategoria.Location = new System.Drawing.Point(365, 209);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(61, 15);
             this.lbCategoria.TabIndex = 19;
@@ -131,7 +133,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(289, 220);
+            this.txtDescripcion.Location = new System.Drawing.Point(450, 256);
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(221, 66);
@@ -142,7 +144,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(193, 36);
+            this.label1.Location = new System.Drawing.Point(354, 72);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(243, 25);
             this.label1.TabIndex = 10;
@@ -152,7 +154,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(144, 88);
+            this.label2.Location = new System.Drawing.Point(305, 124);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 15);
             this.label2.TabIndex = 11;
@@ -165,7 +167,7 @@
             this.cbTipoTransaccion.Items.AddRange(new object[] {
             "Ingreso",
             "Gasto"});
-            this.cbTipoTransaccion.Location = new System.Drawing.Point(289, 85);
+            this.cbTipoTransaccion.Location = new System.Drawing.Point(450, 121);
             this.cbTipoTransaccion.Name = "cbTipoTransaccion";
             this.cbTipoTransaccion.Size = new System.Drawing.Size(132, 21);
             this.cbTipoTransaccion.TabIndex = 16;
@@ -175,7 +177,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(228, 127);
+            this.label3.Location = new System.Drawing.Point(389, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 12;
@@ -183,7 +185,7 @@
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(289, 127);
+            this.txtMonto.Location = new System.Drawing.Point(450, 163);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(132, 20);
             this.txtMonto.TabIndex = 15;
@@ -192,7 +194,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(192, 220);
+            this.label5.Location = new System.Drawing.Point(353, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(73, 15);
             this.label5.TabIndex = 14;
@@ -206,7 +208,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(655, 423);
+            this.tabPage1.Size = new System.Drawing.Size(951, 625);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Transacciones";
             // 
@@ -215,7 +217,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(192, 40);
+            this.label6.Location = new System.Drawing.Point(328, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(276, 25);
             this.label6.TabIndex = 11;
@@ -223,18 +225,40 @@
             // 
             // grillaTransacciones
             // 
-            this.grillaTransacciones.BackgroundColor = System.Drawing.Color.White;
-            this.grillaTransacciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grillaTransacciones.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(97)))));
+            this.grillaTransacciones.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grillaTransacciones.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(77)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grillaTransacciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.grillaTransacciones.ColumnHeadersHeight = 30;
+            this.grillaTransacciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grillaTransacciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idTransaccion,
             this.montoTransaccion,
             this.tipoTransaccion,
             this.fechaTransaccion,
             this.descripcionTransaccion});
-            this.grillaTransacciones.Location = new System.Drawing.Point(6, 86);
+            this.grillaTransacciones.EnableHeadersVisualStyles = false;
+            this.grillaTransacciones.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(53)))), ((int)(((byte)(128)))));
+            this.grillaTransacciones.Location = new System.Drawing.Point(142, 98);
             this.grillaTransacciones.Name = "grillaTransacciones";
+            this.grillaTransacciones.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.grillaTransacciones.RowHeadersVisible = false;
             this.grillaTransacciones.RowHeadersWidth = 51;
-            this.grillaTransacciones.Size = new System.Drawing.Size(641, 311);
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.grillaTransacciones.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.grillaTransacciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grillaTransacciones.Size = new System.Drawing.Size(628, 408);
             this.grillaTransacciones.TabIndex = 0;
             // 
             // idTransaccion
@@ -280,7 +304,7 @@
             this.tabControl1.Location = new System.Drawing.Point(144, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(663, 449);
+            this.tabControl1.Size = new System.Drawing.Size(959, 651);
             this.tabControl1.TabIndex = 10;
             this.tabControl1.Resize += new System.EventHandler(this.tabControl1_Resize);
             // 
@@ -292,7 +316,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 449);
+            this.panel1.Size = new System.Drawing.Size(142, 554);
             this.panel1.TabIndex = 11;
             // 
             // panel3
@@ -421,7 +445,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 449);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

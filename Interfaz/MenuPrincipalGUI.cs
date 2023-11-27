@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Interfaz
 {
@@ -34,7 +35,7 @@ namespace Interfaz
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             CargarGrillas(transaccionesService.BuscarPorCuenta(cuenta.Id));
-            textBox1.Text = cuentaService.buscar(cuenta.Id).Saldo.ToString();
+            lblSaldo.Text = "$" + cuentaService.buscar(cuenta.Id).Saldo.ToString();
             lblNombre.Text = usuario.Nombre.ToUpper() + " " + usuario.Apellido.ToUpper();
         }
 
@@ -58,7 +59,29 @@ namespace Interfaz
 
         }
 
-      
+        void CargarGrillasFiltradas(List<Transacciones> list,int mes)
+        {
+            grillaGastos.Rows.Clear();
+            grillaIngresos.Rows.Clear();
+
+            foreach (var item in list)
+            {
+                if(item.Fecha.Month == mes)
+                {
+                    if (item.TipoTransaccion == "Gasto")
+                    {
+
+                        grillaGastos.Rows.Add(item.Monto, categoriaService.Buscar(item.Categoria_id).Nombre, item.Descripcion, item.Fecha);
+                    }
+                    else
+                    {
+                        grillaIngresos.Rows.Add(item.Monto, categoriaService.Buscar(item.Categoria_id).Nombre, item.Descripcion, item.Fecha);
+                    }
+                }
+                
+            }
+
+        }
 
         private void btnTransacciones_Click(object sender, EventArgs e)
         {
@@ -93,6 +116,20 @@ namespace Interfaz
             IniciarRegistrarSesionGUI t = new IniciarRegistrarSesionGUI();
             t.Show();
             this.Hide();
+        }
+
+
+        private void cbMes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbMes.SelectedIndex != 0)
+            {
+                CargarGrillasFiltradas(transaccionesService.BuscarPorCuenta(cuenta.Id), cbMes.SelectedIndex);
+            }
+            else
+            {
+                CargarGrillas(transaccionesService.BuscarPorCuenta(cuenta.Id));
+            }
+
         }
     }
 }

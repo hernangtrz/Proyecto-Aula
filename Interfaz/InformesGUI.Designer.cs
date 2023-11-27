@@ -112,7 +112,7 @@
             legend1.IsTextAutoFit = false;
             legend1.Name = "Legend1";
             this.chartGastosMes.Legends.Add(legend1);
-            this.chartGastosMes.Location = new System.Drawing.Point(497, 302);
+            this.chartGastosMes.Location = new System.Drawing.Point(568, 302);
             this.chartGastosMes.Margin = new System.Windows.Forms.Padding(2);
             this.chartGastosMes.Name = "chartGastosMes";
             series1.ChartArea = "ChartArea1";
@@ -122,7 +122,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chartGastosMes.Series.Add(series1);
-            this.chartGastosMes.Size = new System.Drawing.Size(355, 201);
+            this.chartGastosMes.Size = new System.Drawing.Size(375, 201);
             this.chartGastosMes.TabIndex = 4;
             // 
             // chartIngresosCategoria
@@ -138,7 +138,7 @@
             legend2.IsTextAutoFit = false;
             legend2.Name = "Legend1";
             this.chartIngresosCategoria.Legends.Add(legend2);
-            this.chartIngresosCategoria.Location = new System.Drawing.Point(169, 302);
+            this.chartIngresosCategoria.Location = new System.Drawing.Point(240, 302);
             this.chartIngresosCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.chartIngresosCategoria.Name = "chartIngresosCategoria";
             series2.BackSecondaryColor = System.Drawing.Color.White;
@@ -170,7 +170,7 @@
             legend3.IsTextAutoFit = false;
             legend3.Name = "Legend1";
             this.chartGastosCategoria.Legends.Add(legend3);
-            this.chartGastosCategoria.Location = new System.Drawing.Point(169, 57);
+            this.chartGastosCategoria.Location = new System.Drawing.Point(240, 57);
             this.chartGastosCategoria.Margin = new System.Windows.Forms.Padding(2);
             this.chartGastosCategoria.Name = "chartGastosCategoria";
             series3.BackSecondaryColor = System.Drawing.Color.White;
@@ -194,7 +194,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(216, 27);
+            this.label1.Location = new System.Drawing.Point(287, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 17);
             this.label1.TabIndex = 11;
@@ -206,7 +206,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(200, 270);
+            this.label2.Location = new System.Drawing.Point(271, 270);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(184, 17);
             this.label2.TabIndex = 12;
@@ -217,7 +217,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Mono", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(606, 270);
+            this.label3.Location = new System.Drawing.Point(677, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(120, 17);
             this.label3.TabIndex = 13;
@@ -229,7 +229,7 @@
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.label4.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(584, 63);
+            this.label4.Location = new System.Drawing.Point(655, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 17);
             this.label4.TabIndex = 19;
@@ -241,7 +241,7 @@
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(764, 63);
+            this.label5.Location = new System.Drawing.Point(835, 63);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 17);
             this.label5.TabIndex = 23;
@@ -254,7 +254,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.label6.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(553, 172);
+            this.label6.Location = new System.Drawing.Point(624, 172);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(104, 17);
             this.label6.TabIndex = 24;
@@ -266,7 +266,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.label7.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(752, 172);
+            this.label7.Location = new System.Drawing.Point(823, 172);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 17);
             this.label7.TabIndex = 25;
@@ -278,7 +278,7 @@
             this.lblSaldo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.lblSaldo.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaldo.ForeColor = System.Drawing.Color.White;
-            this.lblSaldo.Location = new System.Drawing.Point(576, 90);
+            this.lblSaldo.Location = new System.Drawing.Point(647, 90);
             this.lblSaldo.Name = "lblSaldo";
             this.lblSaldo.Size = new System.Drawing.Size(56, 17);
             this.lblSaldo.TabIndex = 26;
@@ -290,7 +290,7 @@
             this.lblCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.lblCategorias.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategorias.ForeColor = System.Drawing.Color.White;
-            this.lblCategorias.Location = new System.Drawing.Point(784, 90);
+            this.lblCategorias.Location = new System.Drawing.Point(855, 90);
             this.lblCategorias.Name = "lblCategorias";
             this.lblCategorias.Size = new System.Drawing.Size(56, 17);
             this.lblCategorias.TabIndex = 27;
@@ -302,7 +302,7 @@
             this.lblGastos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.lblGastos.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGastos.ForeColor = System.Drawing.Color.White;
-            this.lblGastos.Location = new System.Drawing.Point(576, 205);
+            this.lblGastos.Location = new System.Drawing.Point(647, 205);
             this.lblGastos.Name = "lblGastos";
             this.lblGastos.Size = new System.Drawing.Size(64, 17);
             this.lblGastos.TabIndex = 28;
@@ -314,7 +314,7 @@
             this.lblIngresos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.lblIngresos.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngresos.ForeColor = System.Drawing.Color.White;
-            this.lblIngresos.Location = new System.Drawing.Point(776, 205);
+            this.lblIngresos.Location = new System.Drawing.Point(847, 205);
             this.lblIngresos.Name = "lblIngresos";
             this.lblIngresos.Size = new System.Drawing.Size(64, 17);
             this.lblIngresos.TabIndex = 29;
@@ -324,7 +324,7 @@
             // 
             this.pictureBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.pictureBox9.Image = global::Interfaz.Properties.Resources.ingreso;
-            this.pictureBox9.Location = new System.Drawing.Point(696, 172);
+            this.pictureBox9.Location = new System.Drawing.Point(767, 172);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(52, 56);
             this.pictureBox9.TabIndex = 22;
@@ -334,7 +334,7 @@
             // 
             this.pictureBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.pictureBox8.Image = global::Interfaz.Properties.Resources.gastos;
-            this.pictureBox8.Location = new System.Drawing.Point(495, 172);
+            this.pictureBox8.Location = new System.Drawing.Point(566, 172);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(52, 56);
             this.pictureBox8.TabIndex = 21;
@@ -344,7 +344,7 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.pictureBox7.Image = global::Interfaz.Properties.Resources.categorias__1_;
-            this.pictureBox7.Location = new System.Drawing.Point(696, 63);
+            this.pictureBox7.Location = new System.Drawing.Point(767, 63);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(52, 56);
             this.pictureBox7.TabIndex = 20;
@@ -353,7 +353,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
-            this.pictureBox6.Location = new System.Drawing.Point(685, 166);
+            this.pictureBox6.Location = new System.Drawing.Point(756, 166);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(194, 72);
             this.pictureBox6.TabIndex = 18;
@@ -362,7 +362,7 @@
             // pictureBox5
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
-            this.pictureBox5.Location = new System.Drawing.Point(485, 166);
+            this.pictureBox5.Location = new System.Drawing.Point(556, 166);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(183, 72);
             this.pictureBox5.TabIndex = 17;
@@ -371,7 +371,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
-            this.pictureBox4.Location = new System.Drawing.Point(685, 57);
+            this.pictureBox4.Location = new System.Drawing.Point(756, 57);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(194, 62);
             this.pictureBox4.TabIndex = 16;
@@ -381,7 +381,7 @@
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
             this.pictureBox3.Image = global::Interfaz.Properties.Resources.refinanciar;
-            this.pictureBox3.Location = new System.Drawing.Point(495, 63);
+            this.pictureBox3.Location = new System.Drawing.Point(566, 63);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(52, 56);
             this.pictureBox3.TabIndex = 15;
@@ -390,7 +390,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
-            this.pictureBox2.Location = new System.Drawing.Point(485, 57);
+            this.pictureBox2.Location = new System.Drawing.Point(556, 57);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(183, 62);
             this.pictureBox2.TabIndex = 14;
@@ -404,7 +404,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 514);
+            this.panel1.Size = new System.Drawing.Size(142, 554);
             this.panel1.TabIndex = 30;
             // 
             // panel3
@@ -533,7 +533,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(905, 514);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblIngresos);
             this.Controls.Add(this.lblGastos);

@@ -135,6 +135,10 @@ namespace Interfaz
 
         private void IniciarRegistrarSesionGUI_Load(object sender, EventArgs e)
         {
+            txtContraseña2.PasswordChar = '*'; // Puedes usar cualquier carácter que desees
+            txtContraseña2.UseSystemPasswordChar = true;
+            txtContraseña.PasswordChar = '*'; // Puedes usar cualquier carácter que desees
+            txtContraseña.UseSystemPasswordChar = true;
 
         }
     }

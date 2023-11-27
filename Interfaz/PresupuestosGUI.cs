@@ -117,23 +117,80 @@ namespace Interfaz
         {
 
         }
+        private bool ValidarTextosVacios()
+        {
+            if (String.IsNullOrEmpty((txtMonto).Text))
+            {
+                return false;
+            }
+            if (String.IsNullOrEmpty((cbMes).Text))
+            {
+                return false;
+            }
+            if (String.IsNullOrEmpty((cbCategorias).Text))
+            {
+                return false;
+            }
 
+            return true;
+        }
         private void btnAñadir_Click_1(object sender, EventArgs e)
         {
-            Decimal monto = Convert.ToDecimal(txtMonto.Text);
-            String mes = cbMes.Text;
-            Presupuestos p = new Presupuestos(monto, mes);
-            int presupuestoId = presupuestoService.Guardar(p);
-            foreach (var item in categorias)
+            if (ValidarTextosVacios())
             {
-                if (String.Equals(cbCategorias.Text, item.Nombre, StringComparison.OrdinalIgnoreCase))
+                Decimal monto = Convert.ToDecimal(txtMonto.Text);
+                String mes = cbMes.Text;
+                Presupuestos p = new Presupuestos(monto, mes);
+                int presupuestoId = presupuestoService.Guardar(p);
+                foreach (var item in categorias)
                 {
-                    presupuestoService.AsignarPresupuestoACategoria(item.Id, presupuestoId, cuenta.Id);
+                    if (String.Equals(cbCategorias.Text, item.Nombre, StringComparison.OrdinalIgnoreCase))
+                    {
+                        presupuestoService.AsignarPresupuestoACategoria(item.Id, presupuestoId, cuenta.Id);
+                    }
                 }
+                MessageBox.Show($"Presupuesto asignado correctamente a la categoria {cbCategorias.Text}");
+                CargarComponentes();
+                this.Refresh();
             }
-            MessageBox.Show($"Presupuesto asignado correctamente a la categoria {cbCategorias.Text}");
-            CargarComponentes();
-            this.Refresh();
+            else
+            {
+                MessageBox.Show("Rellene todos los campos");
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MenuPrincipalGUI m = new MenuPrincipalGUI(cuenta);
+            m.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TransaccionesGUI t = new TransaccionesGUI(cuenta);
+            t.Show();
+            this.Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CategoriasGUI c = new CategoriasGUI(cuenta);
+            c.Show();
+            this.Hide();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            InformesGUI i = new InformesGUI(cuenta);
+            i.Show();
+            this.Hide();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

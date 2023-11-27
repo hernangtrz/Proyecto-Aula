@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoriasGUI));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -69,7 +72,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(142, 499);
+            this.panel1.Size = new System.Drawing.Size(142, 554);
             this.panel1.TabIndex = 9;
             // 
             // panel3
@@ -99,6 +102,7 @@
             this.btnPresupuestos.TabIndex = 7;
             this.btnPresupuestos.Text = "Presupuestos";
             this.btnPresupuestos.UseVisualStyleBackColor = false;
+            this.btnPresupuestos.Click += new System.EventHandler(this.btnPresupuestos_Click);
             // 
             // button5
             // 
@@ -199,7 +203,7 @@
             this.cbTipo.Items.AddRange(new object[] {
             "Ingreso",
             "Gasto"});
-            this.cbTipo.Location = new System.Drawing.Point(701, 209);
+            this.cbTipo.Location = new System.Drawing.Point(779, 227);
             this.cbTipo.Name = "cbTipo";
             this.cbTipo.Size = new System.Drawing.Size(124, 21);
             this.cbTipo.TabIndex = 28;
@@ -209,7 +213,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(664, 212);
+            this.label3.Location = new System.Drawing.Point(742, 230);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 15);
             this.label3.TabIndex = 27;
@@ -218,7 +222,7 @@
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.Location = new System.Drawing.Point(667, 270);
+            this.btnGuardar.Location = new System.Drawing.Point(745, 288);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 26;
@@ -231,7 +235,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(605, 94);
+            this.label4.Location = new System.Drawing.Point(683, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(199, 25);
             this.label4.TabIndex = 25;
@@ -239,7 +243,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(701, 170);
+            this.txtNombre.Location = new System.Drawing.Point(779, 188);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(124, 20);
             this.txtNombre.TabIndex = 24;
@@ -249,7 +253,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Cascadia Code", 7.8F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(550, 173);
+            this.label5.Location = new System.Drawing.Point(628, 191);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(145, 15);
             this.label5.TabIndex = 23;
@@ -257,7 +261,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(282, 439);
+            this.button7.Location = new System.Drawing.Point(404, 498);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 23);
             this.button7.TabIndex = 21;
@@ -267,7 +271,7 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(189, 439);
+            this.btnEditar.Location = new System.Drawing.Point(311, 498);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 20;
@@ -278,22 +282,50 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.dataGridViewCategorias);
-            this.panel4.Location = new System.Drawing.Point(186, 132);
+            this.panel4.Location = new System.Drawing.Point(309, 140);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(299, 294);
+            this.panel4.Size = new System.Drawing.Size(291, 352);
             this.panel4.TabIndex = 18;
             // 
             // dataGridViewCategorias
             // 
-            this.dataGridViewCategorias.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCategorias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(77)))));
+            this.dataGridViewCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewCategorias.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(13)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Cascadia Code", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(13)))), ((int)(((byte)(59)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCategorias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewCategorias.ColumnHeadersHeight = 30;
+            this.dataGridViewCategorias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewCategorias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreCategoria,
             this.tipoCategoria});
-            this.dataGridViewCategorias.Location = new System.Drawing.Point(4, 0);
+            this.dataGridViewCategorias.EnableHeadersVisualStyles = false;
+            this.dataGridViewCategorias.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(53)))), ((int)(((byte)(128)))));
+            this.dataGridViewCategorias.Location = new System.Drawing.Point(0, 3);
             this.dataGridViewCategorias.Name = "dataGridViewCategorias";
+            this.dataGridViewCategorias.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCategorias.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewCategorias.RowHeadersWidth = 51;
-            this.dataGridViewCategorias.Size = new System.Drawing.Size(292, 292);
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(40)))), ((int)(((byte)(97)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Cascadia Code", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(10)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewCategorias.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewCategorias.Size = new System.Drawing.Size(288, 349);
             this.dataGridViewCategorias.TabIndex = 10;
             // 
             // nombreCategoria
@@ -313,7 +345,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cascadia Code", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(416, 23);
+            this.label1.Location = new System.Drawing.Point(494, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 32);
             this.label1.TabIndex = 13;
@@ -324,7 +356,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cascadia Code", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(226, 94);
+            this.label2.Location = new System.Drawing.Point(342, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(210, 25);
             this.label2.TabIndex = 26;
@@ -335,7 +367,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(26)))), ((int)(((byte)(77)))));
-            this.ClientSize = new System.Drawing.Size(928, 499);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);

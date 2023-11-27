@@ -48,7 +48,7 @@ namespace Interfaz
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Dispose();
+            this.Dispose();
         }
 
         private void Categorias_Load(object sender, EventArgs e)
@@ -128,7 +128,9 @@ namespace Interfaz
 
         private void button4_Click(object sender, EventArgs e)
         {
-            InformesGUI c = new InformesGUI(cuenta);
+            InformesGUI i = new InformesGUI(cuenta);
+            i.Show();
+            this.Hide();
         }
 
         private void grillaCategorias_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -136,67 +138,85 @@ namespace Interfaz
 
         }
 
-      
+        private bool ValidarTextosVacios()
+        {
+            if (String.IsNullOrEmpty((txtNombre).Text))
+            {
+                return false;
+            }
+            if (String.IsNullOrEmpty((cbTipo).Text))
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            Categoria categoria;
-            bool encontro = false;
-            foreach (var item in cuentaService.BuscarCategorias(cuenta.Id))
+            if (ValidarTextosVacios())
             {
-                if (string.Equals(item.Nombre, txtNombre.Text, StringComparison.OrdinalIgnoreCase))
+                Categoria categoria;
+                bool encontro = false;
+                foreach (var item in cuentaService.BuscarCategorias(cuenta.Id))
                 {
-                    encontro = true;
+                    if (item.Nombre == txtNombre.Text)
+                    {
+                        encontro = true;
+                    }
                 }
-            }
-            if (editar == false)
-            {
-                String nombre = txtNombre.Text;
-                String tipo = cbTipo.Text;
-                if (categoriaService.BuscarNombre(nombre) == null)
+                if (editar == false)
                 {
-                    categoria = new Categoria(nombre, tipo);
-                    categoriaService.Guardar(categoria);
-                }
-                
+                    String nombre = txtNombre.Text;
+                    String tipo = cbTipo.Text;
+                    if (categoriaService.BuscarNombre(nombre) == null)
+                    {
+                        categoria = new Categoria(nombre, tipo);
+                        categoriaService.Guardar(categoria);
+                    }
 
-                if (!encontro)
-                {
-                    cuentaService.AsociarCategoria(cuenta.Id, categoriaService.BuscarNombre(nombre).Id);
-                    MessageBox.Show("Categoria Añadida");
-                    txtNombre.Text = "";
-                    cbTipo.Text = "";
+
+                    if (!encontro)
+                    {
+                        cuentaService.AsociarCategoria(cuenta.Id, categoriaService.BuscarNombre(nombre).Id);
+                        MessageBox.Show("Categoria Añadida");
+                        txtNombre.Text = "";
+                        cbTipo.SelectedIndex = -1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya hay una categoria con ese nombre");
+                    }
+                    CargarGrilla(CategoriasActualizadas());
                 }
                 else
                 {
-                    MessageBox.Show("Ya hay una categoria con ese nombre");
+                    if (!encontro)
+                    {
+                        foreach (var item in CategoriasActualizadas())
+                        {
+                            if (item.Nombre == dataGridViewCategorias.SelectedRows[0].Cells["nombreCategoria"].Value.ToString())
+                            {
+                                categoriaService.ActualizarCategoria(item.Id, txtNombre.Text, cbTipo.Text);
+                            }
+                        }
+                        MessageBox.Show("Categoria Actualizada");
+                        txtNombre.Text = "";
+                        cbTipo.Text = "";
+                        editar = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya hay una categoria con ese nombre");
+                    }
+                    CargarGrilla(CategoriasActualizadas());
+
                 }
-                CargarGrilla(CategoriasActualizadas());
             }
             else
             {
-                if (!encontro)
-                {
-                    foreach (var item in CategoriasActualizadas())
-                    {
-                        if (item.Nombre == dataGridViewCategorias.SelectedRows[0].Cells["nombreCategoria"].Value.ToString())
-                        {
-                            categoriaService.ActualizarCategoria(item.Id,txtNombre.Text,cbTipo.Text);
-                        }
-                    }
-                    MessageBox.Show("Categoria Actualizada");
-                    txtNombre.Text = "";
-                    cbTipo.Text = "";
-                    editar = false;
-                }
-                else
-                {
-                    MessageBox.Show("Ya hay una categoria con ese nombre");
-                }
-                CargarGrilla(CategoriasActualizadas());
-
+                MessageBox.Show("Rellene todos los campos");
             }
-
         }
 
         private bool editar = false;
@@ -238,12 +258,20 @@ namespace Interfaz
                 txtNombre.Text = "";
                 cbTipo.Text = "";
                 CargarGrilla(CategoriasActualizadas());
+                editar = false;
 
             }
             else
             {
                 MessageBox.Show("Seleccione una fila");
             }
+        }
+
+        private void btnPresupuestos_Click(object sender, EventArgs e)
+        {
+            PresupuestosGUI p = new PresupuestosGUI(cuenta);
+            p.Show();
+            this.Hide();
         }
     }
 }

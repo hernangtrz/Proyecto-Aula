@@ -73,18 +73,52 @@ namespace Interfaz
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            String tipoTransaccion = cbTipoTransaccion.Text;
-            Decimal monto = Decimal.Parse(txtMonto.Text);
-            DateTime fecha = DateTime.Now;
-            Categoria categoria = categoriaService.BuscarNombre(cbCategoria.Text);
-            String descripcion = txtDescripcion.Text;
-           
-            Transacciones t = new Transacciones(tipoTransaccion, monto, fecha, descripcion , cuenta.Id, categoria.Id);
-           
+            if (ValidarTextosVacios())
+            {
+                String tipoTransaccion = cbTipoTransaccion.Text;
+                Decimal monto = Decimal.Parse(txtMonto.Text);
+                DateTime fecha = DateTime.Now;
+                Categoria categoria = categoriaService.BuscarNombre(cbCategoria.Text);
+                String descripcion = txtDescripcion.Text;
+
+                Transacciones t = new Transacciones(tipoTransaccion, monto, fecha, descripcion, cuenta.Id, categoria.Id);
+
+
+                String message = transaccionesService.Guardar(t);
+                MessageBox.Show(message);
+                cbTipoTransaccion.SelectedIndex = -1;
+                txtMonto.Text = "";
+                cbCategoria.SelectedIndex = -1;
+                txtDescripcion.Text = "";
+                CargarGrilla(TransaccionesActualizadas());
+            }
+            else
+            {
+                MessageBox.Show("Rellene todo los campos");
+            }
             
-            String message = transaccionesService.Guardar(t);
-            MessageBox.Show(message);
-            CargarGrilla(TransaccionesActualizadas());
+        }
+
+        private bool ValidarTextosVacios()
+        {
+            if (String.IsNullOrEmpty((cbTipoTransaccion).Text))
+            {
+                return false;
+            }
+            if (String.IsNullOrEmpty((txtMonto).Text))
+            {
+                return false;
+            }
+            if (String.IsNullOrEmpty((cbCategoria).Text))
+            {
+                return false;
+            }
+            if (String.IsNullOrEmpty((txtDescripcion).Text))
+            {
+                return false;
+            }
+
+            return true;
         }
 
         void CargarGrilla(List<Transacciones> list)
